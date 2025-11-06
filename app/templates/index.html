@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAVE DADDY</title>
+  <link rel="stylesheet" href="styles_nuevo.css"/>
+</head>
+<body>
+  <header class="header neon-border">
+    <h1 class="logo">RAVE DADDY</h1>
+    <button class="btn login neon-border">LOGIN</button>
+  </header>
+
+  <main class="container">
+    <section class="search-panel neon-border">
+      <h2 class="panel-title">Find your next party</h2>
+      <div class="field">
+        <label>DJ</label>
+        <input type="text" placeholder="Freddy K, VTSS, ..." />
+      </div>
+      <div class="field">
+        <label>Genre</label>
+        <select>
+          <option>Techno</option>
+          <option>Acid</option>
+          <option>House</option>
+          <option>Industrial</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>City</label>
+        <select>
+          <option>Madrid</option>
+          <option>Barcelona</option>
+          <option>Valencia</option>
+          <option>Bilbao</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input type="date" />
+      </div>
+      <button class="btn talk neon-border">Filter and talk to Daddy</button>
+    </section>
+
+    <section class="chat-section neon-border">
+      <section class="bot-section">
+        <div class="bot-card ">
+          <div class="bot-frame">
+            <div class="bot-head" id="botHead">
+              <div class="eye left-eye">
+                <div class="eye-iris"></div>
+                <div class="eye-pupil" id="pupilLeft"></div>
+              </div>
+              <div class="eye right-eye">
+                <div class="eye-iris"></div>
+                <div class="eye-pupil" id="pupilRight"></div>
+              </div>
+              <div class="hud-line"></div>
+            </div>
+            <div class="tanktop">
+              <div class="mesh"></div>
+            </div>
+          </div>          
+        </div>
+      </section>
+      <div class="bubble tip">
+        ¿Qué fiestas estas buscando?
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
