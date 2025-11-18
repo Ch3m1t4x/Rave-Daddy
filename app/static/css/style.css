@@ -8,11 +8,19 @@
   --ring-size: 16px;
 }
 
+@font-face {
+  font-family: "RaveDaddyFont";
+  src: url("/static/fonts/Siegra.otf") format("opentype"),
+       url("/static/fonts/Siegra.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 html,
 body {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -63,14 +71,17 @@ body {
 }
 
 .logo {
+  font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
   margin: 0;
   font-weight: 800;
   letter-spacing: 2px;
+  font-size: 3rem;
   color: var(--ink);
   text-shadow: 0 0 12px rgba(247, 74, 74, 0.7);
 }
 
 .btn {
+  font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
   background: transparent;
   color: var(--ink);
   border: none;
@@ -82,6 +93,8 @@ body {
 }
 
 .btn.login {
+  letter-spacing: 2px;
+  font-size: 1.2rem;
   color: var(--ink2);
 }
 
@@ -97,6 +110,7 @@ body {
 
 /* Buscador */
 .search-panel {
+  font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
   background: #0d0920;
   padding: 18px;
   border-radius: 16px;
@@ -125,6 +139,8 @@ body {
 
 .field input,
 .field select {
+  font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
   background: #140b2b;
   border: 1px solid #231046;
   color: var(--text);
@@ -135,33 +151,13 @@ body {
 }
 
 .btn.talk {
+  letter-spacing: 2px;
+  font-size: 1rem;
   position: absolute;
   bottom: 15px;
   color: var(--ink);
 }
 
-/* chat */
-.chat-section {
-  position: relative;
-  background: #110b2b;
-  padding: 18px;
-}
-
-.bubble {
-  display: inline-block;
-  position: absolute;
-  bottom: 15px;
-  background: #120c24;
-  border: 1px solid #26124f;
-  border-radius: 12px;
-  padding: 10px 12px;
-  color: var(--text);
-}
-
-.bubble.tip {
-  border-color: #245c57;
-  color: var(--cyan);
-}
 
 /* bot */
 
@@ -258,7 +254,7 @@ body {
   position: absolute;
   inset: 4px;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+  radial-gradient(circle, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
   background-size: 7px 7px;
   opacity: 0.65;
   mix-blend-mode: screen;
@@ -266,4 +262,107 @@ body {
 
 .bot-head:hover .eye-pupil {
   box-shadow: 0 0 9px rgba(61, 230, 214, 0.75);
+}
+
+.chat-section {
+  /* Buscar un font para los mensajes*/
+  position: relative;
+  background: #110b2b;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 450px;
+  padding: 20px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 60, 0.7);
+  border-radius: 10px;
+}
+
+
+.bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  animation: fadeIn 0.2s ease-out;
+}
+
+
+.bubble.bot {
+  align-self: flex-start;
+  background: rgba(255, 0, 80, 0.2);
+  border: 1px solid rgba(255, 0, 120, 0.4);
+  box-shadow: 0 0 10px rgba(255, 0, 130, 0.4);
+}
+
+
+.bubble.user {
+  align-self: flex-end;
+  background: rgba(0, 200, 255, 0.15);
+  border: 1px solid rgba(0, 200, 255, 0.45);
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px;
+  background: #0a0a0f;
+  color: #fff;
+  border: 1px solid rgba(255, 0, 120, 0.4);
+  border-radius: 10px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.chat-input:focus {
+  border-color: #ff0066;
+  box-shadow: 0 0 8px #ff0066;
+}
+
+.send-btn {
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  padding: 10px 18px;
+  cursor: pointer;
+  background: transparent;
+  color: #ff0066;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.send-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 8px #ff0066;
 }

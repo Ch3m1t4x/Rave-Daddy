@@ -1,11 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RAVE DADDY</title>
-  <link rel="stylesheet" href="styles_nuevo.css"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
   <header class="header neon-border">
     <h1 class="logo">RAVE DADDY</h1>
@@ -41,7 +44,7 @@
         <label>Date</label>
         <input type="date" />
       </div>
-      <button class="btn talk neon-border">Filter and talk to Daddy</button>
+      <button class="btn talk neon-border">FILTER AND TALK TO DADDY</button>
     </section>
 
     <section class="chat-section neon-border">
@@ -62,14 +65,24 @@
             <div class="tanktop">
               <div class="mesh"></div>
             </div>
-          </div>          
+          </div>
         </div>
       </section>
-      <div class="bubble tip">
-        ¿Qué fiestas estas buscando?
+      <div class="chat-messages" id="chatMessages">
+
+        <div class="bubble bot">
+          ¿Que fiestas estas buscando?
+        </div>
       </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Háblale a Daddy..." />
+        <button id="chatSend" class="btn send-btn neon-border">DADDY</button>
+      </div>
+
     </section>
   </main>
-  <script src="app.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
+
 </html>

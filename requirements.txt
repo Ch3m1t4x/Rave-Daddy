@@ -3,3 +3,6 @@ psycopg2-binary>=2.9
 djangorestframework
 python-dotenv
 requests
+langchain==1.0.0
+langchain-google-genai
+langgraph-prebuilt==1.0.4
