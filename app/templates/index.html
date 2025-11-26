@@ -12,9 +12,12 @@
 <body>
   <header class="header neon-border">
     <h1 class="logo">RAVE DADDY</h1>
-    <button class="btn login neon-border">LOGIN</button>
+    {% if user.is_authenticated %}
+    <p class="welcome">Bienvenido {{ user.username|default:user.email }}</p>
+    {% else %}
+    <button onclick="openLoginModal()" class="btn login neon-border">LOGIN</button>
+    {% endif %}
   </header>
-
   <main class="container">
     <section class="search-panel neon-border">
       <h2 class="panel-title">Find your next party</h2>
@@ -46,7 +49,6 @@
       </div>
       <button class="btn talk neon-border">FILTER AND TALK TO DADDY</button>
     </section>
-
     <section class="chat-section neon-border">
       <section class="bot-section">
         <div class="bot-card ">
@@ -82,6 +84,50 @@
 
     </section>
   </main>
+
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+
+      <div id="login-view">
+        <h2 class="modal-title">Login</h2>
+
+        <form id="login-form">
+          <input id="login-email" type="email" placeholder="Email" required>
+          <input id="login-password" type="password" placeholder="Password" required>
+          <p id="login-error" class="error-msg hidden">Credenciales incorrectas</p>
+          <button type="submit" class="login-button">Entrar</button>
+        </form>
+
+        <p class="modal-switch">
+          ¿No tienes cuenta?
+          <span onclick="openRegister()" class="switch-link">Regístrate aquí</span>
+        </p>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="register-view" class="hidden">
+        <h2 class="modal-title">Registro</h2>
+
+        <form id="register-form">
+          <input id="reg-username" type="text" placeholder="Username" required>
+          <input id="reg-email" type="email" placeholder="Email" required>
+          <input id="reg-password" type="password" placeholder="Password" required>
+          <p id="register-error" class="error-msg hidden">Error en el registro</p>
+
+          <button type="submit" class="login-button">Crear cuenta</button>
+        </form>
+
+        <p class="modal-switch">
+          ¿Ya tienes cuenta?
+          <span onclick="openLogin()" class="switch-link">Inicia sesión aquí</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
   <script src="{% static 'js/main.js' %}"></script>
 </body>
 

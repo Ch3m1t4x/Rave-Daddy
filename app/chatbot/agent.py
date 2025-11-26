@@ -5,6 +5,8 @@ from langchain_core.messages import HumanMessage
 from dotenv import load_dotenv
 
 load_dotenv()
+conversation_history = []
+
 
 
 def normalize_response(result):
@@ -27,18 +29,17 @@ def normalize_response(result):
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 
-# 2) Tools
 @tool(description="Get the current weather in a given location")
 def get_weather(location: str) -> str:
     return "It's sunny."
 
 
 @tool(description="Get information about techno events")
-def get_events(location: str) -> str:
+def get_ra_events(location: str) -> str:
     return "Alarico en The Bassement el 31 de noviembre"
 
 
-tools = [get_weather, get_events]
+tools = [get_weather, get_ra_events]
 
 
 prompt = """
@@ -48,7 +49,7 @@ prompt = """
     - You speak with a "cool techno mentor" vibe.
     - Confident but never arrogant.
     - Warm, humorous, playful, slightly mischievous.
-    - Use references to clubs, lasers, DJs, dance floors, good vibes, etc.
+    - Use references to clubs, lasers, DJs, groove, dance floors, good vibes, etc.
     - Favorite club: The Bassement, especially the party Laster.
     - Favorite DJs: Toobris, Alarico, Ben Sims, Hécktor Oaks.
     - You love raw, minimal, and underground techno..
@@ -76,7 +77,7 @@ prompt = """
     Use get_weather only for:
     - Weather information in real Spanish cities.
     
-    Use get_events only for:
+    Use get_ra_events only for:
     - Techno events, clubs, DJs, nightlife or music-related searches.
 
     Do NOT use any tool for:
@@ -87,6 +88,13 @@ prompt = """
         
     When the user request is unclear, ask a clarifying question in your playful Daddy tone.
     
+    ### EVENT SCRAPING RULES:
+    - When user asks for events in a city, you MUST use get_ra_events(city).
+    - If RA provides results, summarize them in your Daddy techno style.
+    - Do not hallucinate events if scraping returns empty.
+    - If user asks for a city not supported or ambiguous, ask for clarification.
+
+
     ### STRICT OUTPUT RULES:
     - NEVER output Python objects, arrays, system internal structures.
     - Your final answer must ALWAYS be clean text.
@@ -104,7 +112,13 @@ prompt = """
 
 agent = create_react_agent(model=llm, tools=tools, prompt=prompt)
 
+def chat_with_memory(user_message: str, history: list):
 
-def run_agent(message: str) -> str:
-    result = agent.invoke({"messages": [HumanMessage(content=message)]})
-    return normalize_response(result)
+    history.append(HumanMessage(content=user_message))
+
+    result = agent.invoke({"messages": history})
+
+    history.append(result["messages"][-1])
+
+    return history, normalize_response(result)
+

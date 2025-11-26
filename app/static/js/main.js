@@ -72,3 +72,98 @@ sendBtn.addEventListener("click", handleSend);
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") handleSend();
 });
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + "=")) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function openLoginModal() {
+  document.getElementById("login-modal").classList.remove("hidden");
+}
+
+function closeLoginModal() {
+  document.getElementById("login-modal").classList.add("hidden");
+}
+
+document.getElementById("login-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  const response = await fetch("users/api/login/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken"),
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password
+    })
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+      closeLoginModal();
+      location.reload();
+  } else {
+      document.getElementById("login-error").classList.remove("hidden");
+  }
+});
+
+
+function openRegister() {
+    document.getElementById("login-view").classList.add("hidden");
+    document.getElementById("register-view").classList.remove("hidden");
+}
+
+function openLogin() {
+    document.getElementById("register-view").classList.add("hidden");
+    document.getElementById("login-view").classList.remove("hidden");
+}
+
+document.getElementById("register-form").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("reg-username").value;
+    const email = document.getElementById("reg-email").value;
+    const password = document.getElementById("reg-password").value;
+
+    const response = await fetch("/users/api/register/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password
+        })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        closeLoginModal();
+        location.reload();
+    } else {
+        document.getElementById("register-error").innerText = data.error || "Error desconocido";
+        document.getElementById("register-error").classList.remove("hidden");
+    }
+});
+
+

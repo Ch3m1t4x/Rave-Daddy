@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN playwright install
+
 
 # Copiamos el script de entrada
 COPY entrypoint.sh /entrypoint.sh
