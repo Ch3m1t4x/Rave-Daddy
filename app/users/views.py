@@ -2,10 +2,11 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, logout, get_user_model
 
 User = get_user_model()
-@csrf_exempt
+
+# @csrf_exempt
 def api_register(request):
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
@@ -32,7 +33,7 @@ def api_register(request):
     return JsonResponse({"success": True, "username": user.username})
 
 
-@csrf_exempt
+# @csrf_exempt
 def api_login(request):
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
@@ -58,3 +59,7 @@ def api_login(request):
     login(request, user)
 
     return JsonResponse({"success": True, "username": user.username})
+
+def logout_view(request):
+    logout(request)
+    return JsonResponse({"success": True})

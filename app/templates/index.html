@@ -14,6 +14,8 @@
     <h1 class="logo">RAVE DADDY</h1>
     {% if user.is_authenticated %}
     <p class="welcome">Bienvenido {{ user.username|default:user.email }}</p>
+    <button type="submit" id="btn_logout" class="btn neon-border">Cerrar sesión</button>
+    <script src="{% static 'js/logged.js' %}"></script>
     {% else %}
     <button onclick="openLoginModal()" class="btn login neon-border">LOGIN</button>
     {% endif %}

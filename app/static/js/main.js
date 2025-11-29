@@ -165,5 +165,3 @@ document.getElementById("register-form").addEventListener("submit", async functi
         document.getElementById("register-error").classList.remove("hidden");
     }
 });
-
-
