@@ -404,7 +404,7 @@ body {
 
 #login-form input,
 #register-form input {
-    width: 94%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 12px;
     background: #222;

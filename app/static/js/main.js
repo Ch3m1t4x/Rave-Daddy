@@ -17,7 +17,7 @@
 
     // normalizamos
     const angle = Math.atan2(dy, dx);
-    const dist = Math.min(Math.hypot(dx, dy) / 80, 1); // suavizado
+    const dist = Math.min(Math.hypot(dx, dy) / 80, 1);
     const ox = Math.cos(angle) * maxOffset * dist;
     const oy = Math.sin(angle) * maxOffset * dist;
 
