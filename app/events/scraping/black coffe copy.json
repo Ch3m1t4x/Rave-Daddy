@@ -1,0 +1,1465 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "84dbaffa-919c-11e9-846c-06b12363b88e",
+      "legacyId": 16901,
+      "name": "Black Coffe, Dj Sneak \u0026 Washington Bodero presented by Houseclass",
+      "slug": "black-coffe-dj-sneak-washington-bodero-presented-by-houseclass",
+      "startingTime": 1464299940,
+      "endingTime": 1464327000,
+      "coverUrl": "https://images.xceed.me/events/banners/black-coffe-dj-sneak-washington-bodero-presented-by-houseclass-barcelona-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce740c5-919c-11e9-846c-06b12363b88e",
+        "legacyId": 388,
+        "name": "CDLC - Carpe Diem",
+        "slug": "cdlc-carpe-diem",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/cdlc-carpe-diem-club-barcelona-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/cdlc-carpe-diem-club-barcelona-xceed-85af.jpg",
+        "address": "Passeig Mar\u00edtim de la Barceloneta, 32",
+        "coordinates": { "latitude": 41.385018, "longitude": 2.196263 },
+        "city": {
+          "id": "066b6cbb-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 44,
+          "name": "Barcelona",
+          "slug": "barcelona",
+          "coverUrl": "https://images.xceed.me/cities/covers/barcelona-events-xceed-1e6d.jpg",
+          "timezone": "Europe/Madrid",
+          "currency": "EUR",
+          "country": {
+            "id": "0a75d5ef-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 724,
+            "name": "Espa\u00f1a",
+            "slug": "spain",
+            "coverUrl": "https://images.xceed.me/countries/covers/spain-country-xceed226f.jpeg",
+            "isoCode": "ES"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "44193fd0-a0fb-11ea-bb37-0242ac130002",
+            "name": "Club",
+            "slug": "club"
+          },
+          {
+            "id": "fa0d193e-a0fa-11ea-bb37-0242ac130002",
+            "name": "En la playa",
+            "slug": "beachside"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cde37bb6-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 1566,
+          "name": "Dj Sneak",
+          "slug": "dj-sneak",
+          "coverUrl": "https://images.xceed.me/artists/covers/dj-sneak-artist-xceed-cover-c820.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Untouchable Funk",
+              "url": "https://p.scdn.co/mp3-preview/7b9f2c21eda272f93a8adbc3e61c38d76329f3a0?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "acid house" },
+            { "name": "chicago house" },
+            { "name": "deep house" },
+            { "name": "disco house" },
+            { "name": "filter house" },
+            { "name": "vocal house" }
+          ]
+        },
+        {
+          "id": "cde831ee-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 4639,
+          "name": "Washington Bodero",
+          "slug": "washington-bodero",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        },
+        {
+          "id": "0bce1013-1035-11ea-b000-06b880e08c2c",
+          "name": "Hits",
+          "slug": "hits"
+        }
+      ]
+    },
+    {
+      "id": "84e402b9-919c-11e9-846c-06b12363b88e",
+      "legacyId": 19600,
+      "name": "Sea Beats | Sea Dance Festival",
+      "slug": "sea-beats-sea-dance-festival",
+      "startingTime": 1468404000,
+      "endingTime": 1468819800,
+      "coverUrl": "https://images.xceed.me/events/banners/sea-beats-sea-dance-festival-split-xceed.png",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce7b270-919c-11e9-846c-06b12363b88e",
+        "legacyId": 588,
+        "name": "Sea Beats",
+        "slug": "sea-beats",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/sea-beats-club-split-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/sea-beats-club-split-xceed.png",
+        "address": "South City",
+        "coordinates": { "latitude": 42.6506606, "longitude": 18.0944238 },
+        "city": {
+          "id": "066b9e3e-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 87,
+          "name": "Split",
+          "slug": "split",
+          "coverUrl": "https://images.xceed.me/cities/covers/split-events-xceed.jpg",
+          "timezone": "Europe/Zagreb",
+          "currency": "EUR",
+          "country": {
+            "id": "0a751713-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 191,
+            "name": "Croacia",
+            "slug": "croatia-hrvatska",
+            "coverUrl": "https://images.xceed.me/static/entities/country-place-holder.jpg",
+            "isoCode": "HR"
+          }
+        },
+        "characteristics": []
+      },
+      "lineup": [
+        {
+          "id": "cde84bd1-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 4718,
+          "name": "Skrillex",
+          "slug": "skrillex",
+          "coverUrl": "https://images.xceed.me/artists/covers/skrillex-artist-xceed-cover-566b.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Rumble",
+              "url": "https://p.scdn.co/mp3-preview/eb79af9f809883de0632f02388ec354478612754?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "brostep" },
+            { "name": "complextro" },
+            { "name": "edm" },
+            { "name": "electro" },
+            { "name": "pop dance" }
+          ]
+        },
+        {
+          "id": "cde3edb7-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 1847,
+          "name": "Lost Frequencies",
+          "slug": "lost-frequencies",
+          "coverUrl": "https://images.xceed.me/artists/covers/lost-frequencies-artist-xceed-cover-ba09.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Crazy",
+              "url": "https://p.scdn.co/mp3-preview/0eb3870a08eb4e3826d83a851162a1d249fd0e3b?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep tropical house" },
+            { "name": "edm" },
+            { "name": "pop" },
+            { "name": "tropical house" }
+          ]
+        },
+        {
+          "id": "cde84c1e-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 4719,
+          "name": "Faithless DJ Set",
+          "slug": "faithless-dj-set",
+          "coverUrl": "https://images.xceed.me/artists/covers/faithless-dj-set-artist-xceed-cover-8456.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Insomnia - Radio Edit",
+              "url": "https://p.scdn.co/mp3-preview/8f00afc91dab37f407cf53b89f3cbe868bea5db5?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "big beat" },
+            { "name": "downtempo" },
+            { "name": "electronica" },
+            { "name": "trip hop" }
+          ]
+        },
+        {
+          "id": "cde256c0-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 848,
+          "name": "Jeff Mills",
+          "slug": "jeff-mills",
+          "coverUrl": "https://images.xceed.me/artists/covers/jeff-mills-artist-xceed-cover-c23d.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "The Bells",
+              "url": "https://p.scdn.co/mp3-preview/d45862561b79869609ee2e9efee399d635b67e85?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "acid house" },
+            { "name": "detroit techno" },
+            { "name": "minimal techno" },
+            { "name": "techno" }
+          ]
+        },
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        },
+        {
+          "id": "0bce0e9a-1035-11ea-b000-06b880e08c2c",
+          "name": "Techno",
+          "slug": "techno"
+        },
+        {
+          "id": "0bce09ff-1035-11ea-b000-06b880e08c2c",
+          "name": "Electro",
+          "slug": "electro"
+        }
+      ]
+    },
+    {
+      "id": "84e7d61e-919c-11e9-846c-06b12363b88e",
+      "legacyId": 20862,
+      "name": "Black Coffee @ The Loft \u0026 Slow Magic @ Razzclub",
+      "slug": "black-coffee-the-loft-slow-magic-razzclub",
+      "startingTime": 1469224740,
+      "endingTime": 1469251800,
+      "coverUrl": "https://images.xceed.me/events/banners/black-coffee-the-loft-slow-magic-razzclub-barcelona-xceed.png",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce72552-919c-11e9-846c-06b12363b88e",
+        "legacyId": 335,
+        "name": "Razzmatazz",
+        "slug": "razzmatazz",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/razzmatazz-club-barcelona-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/razzmatazz-club-barcelona-xceed-1c26.jpg",
+        "address": "Calle Pamplona, 88",
+        "coordinates": { "latitude": 41.397729, "longitude": 2.1910809999999 },
+        "city": {
+          "id": "066b6cbb-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 44,
+          "name": "Barcelona",
+          "slug": "barcelona",
+          "coverUrl": "https://images.xceed.me/cities/covers/barcelona-events-xceed-1e6d.jpg",
+          "timezone": "Europe/Madrid",
+          "currency": "EUR",
+          "country": {
+            "id": "0a75d5ef-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 724,
+            "name": "Espa\u00f1a",
+            "slug": "spain",
+            "coverUrl": "https://images.xceed.me/countries/covers/spain-country-xceed226f.jpeg",
+            "isoCode": "ES"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "311ec4ae-a0fb-11ea-bb37-0242ac130002",
+            "name": "Local amplio",
+            "slug": "large-venue"
+          },
+          {
+            "id": "44193fd0-a0fb-11ea-bb37-0242ac130002",
+            "name": "Club",
+            "slug": "club"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde8b790-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 4978,
+          "name": "Slow Magic",
+          "slug": "slow-magic",
+          "coverUrl": "https://images.xceed.me/artists/covers/slow-magic-artist-xceed-cover-42af.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde18904-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 98,
+          "name": "Amable",
+          "slug": "amable",
+          "coverUrl": "https://images.xceed.me/artists/covers/amable-artist-xceed-cover-d59d.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "July - DJ Amable Remix",
+              "url": "https://p.scdn.co/mp3-preview/0db134c5e2f4c46aa63950b03f898bbafbfe39e2?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": []
+        },
+        {
+          "id": "cde6781f-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3548,
+          "name": "Toner",
+          "slug": "toner",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce09ff-1035-11ea-b000-06b880e08c2c",
+          "name": "Electro",
+          "slug": "electro"
+        },
+        {
+          "id": "0bce0e9a-1035-11ea-b000-06b880e08c2c",
+          "name": "Techno",
+          "slug": "techno"
+        }
+      ]
+    },
+    {
+      "id": "850f6b9a-919c-11e9-846c-06b12363b88e",
+      "legacyId": 33421,
+      "name": "Balkan Beats | Exit Music Festival",
+      "slug": "balkan-beats-exit-music-festival",
+      "startingTime": 1499076000,
+      "endingTime": 1499853600,
+      "coverUrl": "https://images.xceed.me/events/banners/balkan-beats-exit-music-festival-split-xceed.png",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce944e2-919c-11e9-846c-06b12363b88e",
+        "legacyId": 1109,
+        "name": "Split - Travel",
+        "slug": "split-travel",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/split-travel-club-split-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/split-travel-club-split-xceed.png",
+        "address": "Split",
+        "coordinates": { "latitude": 43.5081323, "longitude": 16.4401935 },
+        "city": {
+          "id": "066b9e3e-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 87,
+          "name": "Split",
+          "slug": "split",
+          "coverUrl": "https://images.xceed.me/cities/covers/split-events-xceed.jpg",
+          "timezone": "Europe/Zagreb",
+          "currency": "EUR",
+          "country": {
+            "id": "0a751713-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 191,
+            "name": "Croacia",
+            "slug": "croatia-hrvatska",
+            "coverUrl": "https://images.xceed.me/static/entities/country-place-holder.jpg",
+            "isoCode": "HR"
+          }
+        },
+        "characteristics": []
+      },
+      "lineup": [
+        {
+          "id": "cded252c-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7802,
+          "name": "Liam Gallagher",
+          "slug": "liam-gallagher",
+          "coverUrl": "https://images.xceed.me/artists/covers/liam-gallagher-artist-xceed-cover-4355.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cdeb5ae5-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 6778,
+          "name": "Hardwell",
+          "slug": "hardwell",
+          "coverUrl": "https://images.xceed.me/artists/covers/hardwell-artist-xceed-cover-de4f.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Satisfaction - Hardwell \u0026 Maddix Remix",
+              "url": "https://p.scdn.co/mp3-preview/a2f943aacbacc5e56a0ad3bb4e187babfec6a4f5?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "big room" },
+            { "name": "dutch house" },
+            { "name": "edm" },
+            { "name": "electro house" },
+            { "name": "pop dance" },
+            { "name": "progressive electro house" },
+            { "name": "progressive house" }
+          ]
+        },
+        {
+          "id": "cde25621-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 846,
+          "name": "Paul Kalkbrenner",
+          "slug": "paul-kalkbrenner",
+          "coverUrl": "https://images.xceed.me/artists/covers/paul-kalkbrenner-artist-xceed-cover-d891.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Sky and Sand",
+              "url": "https://p.scdn.co/mp3-preview/ad14039c85b33176076e1b8d779b62f5c9dd31b0?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "german techno" },
+            { "name": "minimal techno" },
+            { "name": "tech house" },
+            { "name": "tropical house" }
+          ]
+        },
+        {
+          "id": "cded2581-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7803,
+          "name": "Alan Walker",
+          "slug": "alan-walker",
+          "coverUrl": "https://images.xceed.me/artists/covers/alan-walker-artist-xceed-cover-75fd.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Tired",
+              "url": "https://p.scdn.co/mp3-preview/ee9cc408c0c1fd5d809a07b82045a5b6e329662f?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [{ "name": "edm" }, { "name": "tropical house" }]
+        },
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cded2600-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7804,
+          "name": "Duke Dumont",
+          "slug": "duke-dumont",
+          "coverUrl": "https://images.xceed.me/artists/covers/duke-dumont-artist-xceed-cover-f294.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cded2687-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7805,
+          "name": "Foreign Beggars",
+          "slug": "foreign-beggars",
+          "coverUrl": "https://images.xceed.me/artists/covers/foreign-beggars-artist-xceed-cover-e92a.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde23012-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 733,
+          "name": "Hot Since 82",
+          "slug": "hot-since-82",
+          "coverUrl": "https://images.xceed.me/artists/covers/hot-since-82-artist-xceed-cover-ad39.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Restless",
+              "url": "https://p.scdn.co/mp3-preview/5ff5bf17ba5970af440b7ac618e7a3e688c6daed?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep disco house" },
+            { "name": "deep groove house" },
+            { "name": "disco house" },
+            { "name": "house" },
+            { "name": "minimal tech house" },
+            { "name": "minimal techno" },
+            { "name": "tech house" }
+          ]
+        },
+        {
+          "id": "cde4d9ec-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 2495,
+          "name": "Jamie Jones",
+          "slug": "jamie-jones",
+          "coverUrl": "https://images.xceed.me/artists/covers/jamie-jones-artist-xceed-cover-638d.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Enough to Believe - Jamie Jones Remix",
+              "url": "https://p.scdn.co/mp3-preview/13e16abc25f756585ca253e4f5d8555b81cdfcbb?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep disco house" },
+            { "name": "deep house" },
+            { "name": "house" },
+            { "name": "minimal tech house" },
+            { "name": "minimal techno" },
+            { "name": "tech house" },
+            { "name": "uk tech house" }
+          ]
+        },
+        {
+          "id": "cded270e-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7806,
+          "name": "Robin Schulz",
+          "slug": "robin-schulz",
+          "coverUrl": "https://images.xceed.me/artists/covers/robin-schulz-artist-xceed-cover-ca87.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "OK",
+              "url": "https://p.scdn.co/mp3-preview/6c43af6924b1ad0f3b3f291f937864e53e2f744d?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep euro house" },
+            { "name": "edm" },
+            { "name": "pop" },
+            { "name": "tropical house" }
+          ]
+        },
+        {
+          "id": "cded2774-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7807,
+          "name": "Kungs",
+          "slug": "kungs",
+          "coverUrl": "https://images.xceed.me/artists/covers/kungs-artist-xceed-cover-80ad.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Substitution (feat. Julian Perretta)",
+              "url": "https://p.scdn.co/mp3-preview/11f3f82e39b5fdba958a25a10d6c8d22e6bdab8c?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [{ "name": "edm" }, { "name": "pop dance" }]
+        },
+        {
+          "id": "cded27da-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7808,
+          "name": "Destruction",
+          "slug": "destruction",
+          "coverUrl": "https://images.xceed.me/artists/covers/destruction-artist-xceed-cover-ab4d.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cded282b-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7809,
+          "name": "Discharge",
+          "slug": "discharge",
+          "coverUrl": "https://images.xceed.me/artists/covers/discharge-artist-xceed-cover-25d7.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0e9a-1035-11ea-b000-06b880e08c2c",
+          "name": "Techno",
+          "slug": "techno"
+        },
+        {
+          "id": "0bce138b-1035-11ea-b000-06b880e08c2c",
+          "name": "EDM",
+          "slug": "edm"
+        }
+      ]
+    },
+    {
+      "id": "850f6e1b-919c-11e9-846c-06b12363b88e",
+      "legacyId": 33425,
+      "name": "Balkan Sea Beats | Exit Music Festival \u0026 Sea Dance Festival",
+      "slug": "balkan-sea-beats-exit-music-festival-sea-dance-festival",
+      "startingTime": 1499076000,
+      "endingTime": 1500285600,
+      "coverUrl": "https://images.xceed.me/events/banners/balkan-sea-beats-exit-music-festival-sea-dance-festival-split-xceed.png",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce944e2-919c-11e9-846c-06b12363b88e",
+        "legacyId": 1109,
+        "name": "Split - Travel",
+        "slug": "split-travel",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/split-travel-club-split-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/split-travel-club-split-xceed.png",
+        "address": "Split",
+        "coordinates": { "latitude": 43.5081323, "longitude": 16.4401935 },
+        "city": {
+          "id": "066b9e3e-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 87,
+          "name": "Split",
+          "slug": "split",
+          "coverUrl": "https://images.xceed.me/cities/covers/split-events-xceed.jpg",
+          "timezone": "Europe/Zagreb",
+          "currency": "EUR",
+          "country": {
+            "id": "0a751713-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 191,
+            "name": "Croacia",
+            "slug": "croatia-hrvatska",
+            "coverUrl": "https://images.xceed.me/static/entities/country-place-holder.jpg",
+            "isoCode": "HR"
+          }
+        },
+        "characteristics": []
+      },
+      "lineup": [
+        {
+          "id": "cded252c-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7802,
+          "name": "Liam Gallagher",
+          "slug": "liam-gallagher",
+          "coverUrl": "https://images.xceed.me/artists/covers/liam-gallagher-artist-xceed-cover-4355.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cdeb5ae5-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 6778,
+          "name": "Hardwell",
+          "slug": "hardwell",
+          "coverUrl": "https://images.xceed.me/artists/covers/hardwell-artist-xceed-cover-de4f.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Satisfaction - Hardwell \u0026 Maddix Remix",
+              "url": "https://p.scdn.co/mp3-preview/a2f943aacbacc5e56a0ad3bb4e187babfec6a4f5?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "big room" },
+            { "name": "dutch house" },
+            { "name": "edm" },
+            { "name": "electro house" },
+            { "name": "pop dance" },
+            { "name": "progressive electro house" },
+            { "name": "progressive house" }
+          ]
+        },
+        {
+          "id": "cde25621-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 846,
+          "name": "Paul Kalkbrenner",
+          "slug": "paul-kalkbrenner",
+          "coverUrl": "https://images.xceed.me/artists/covers/paul-kalkbrenner-artist-xceed-cover-d891.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Sky and Sand",
+              "url": "https://p.scdn.co/mp3-preview/ad14039c85b33176076e1b8d779b62f5c9dd31b0?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "german techno" },
+            { "name": "minimal techno" },
+            { "name": "tech house" },
+            { "name": "tropical house" }
+          ]
+        },
+        {
+          "id": "cded2581-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7803,
+          "name": "Alan Walker",
+          "slug": "alan-walker",
+          "coverUrl": "https://images.xceed.me/artists/covers/alan-walker-artist-xceed-cover-75fd.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Tired",
+              "url": "https://p.scdn.co/mp3-preview/ee9cc408c0c1fd5d809a07b82045a5b6e329662f?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [{ "name": "edm" }, { "name": "tropical house" }]
+        },
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cde6e126-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3784,
+          "name": "Duke Fake",
+          "slug": "duke-fake",
+          "coverUrl": "https://images.xceed.me/artists/covers/duke-fake-artist-xceed-cover-fc6c.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cded2687-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7805,
+          "name": "Foreign Beggars",
+          "slug": "foreign-beggars",
+          "coverUrl": "https://images.xceed.me/artists/covers/foreign-beggars-artist-xceed-cover-e92a.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde23012-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 733,
+          "name": "Hot Since 82",
+          "slug": "hot-since-82",
+          "coverUrl": "https://images.xceed.me/artists/covers/hot-since-82-artist-xceed-cover-ad39.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Restless",
+              "url": "https://p.scdn.co/mp3-preview/5ff5bf17ba5970af440b7ac618e7a3e688c6daed?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep disco house" },
+            { "name": "deep groove house" },
+            { "name": "disco house" },
+            { "name": "house" },
+            { "name": "minimal tech house" },
+            { "name": "minimal techno" },
+            { "name": "tech house" }
+          ]
+        },
+        {
+          "id": "cde4d9ec-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 2495,
+          "name": "Jamie Jones",
+          "slug": "jamie-jones",
+          "coverUrl": "https://images.xceed.me/artists/covers/jamie-jones-artist-xceed-cover-638d.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Enough to Believe - Jamie Jones Remix",
+              "url": "https://p.scdn.co/mp3-preview/13e16abc25f756585ca253e4f5d8555b81cdfcbb?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep disco house" },
+            { "name": "deep house" },
+            { "name": "house" },
+            { "name": "minimal tech house" },
+            { "name": "minimal techno" },
+            { "name": "tech house" },
+            { "name": "uk tech house" }
+          ]
+        },
+        {
+          "id": "cded270e-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7806,
+          "name": "Robin Schulz",
+          "slug": "robin-schulz",
+          "coverUrl": "https://images.xceed.me/artists/covers/robin-schulz-artist-xceed-cover-ca87.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "OK",
+              "url": "https://p.scdn.co/mp3-preview/6c43af6924b1ad0f3b3f291f937864e53e2f744d?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "deep euro house" },
+            { "name": "edm" },
+            { "name": "pop" },
+            { "name": "tropical house" }
+          ]
+        },
+        {
+          "id": "cded2774-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7807,
+          "name": "Kungs",
+          "slug": "kungs",
+          "coverUrl": "https://images.xceed.me/artists/covers/kungs-artist-xceed-cover-80ad.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Substitution (feat. Julian Perretta)",
+              "url": "https://p.scdn.co/mp3-preview/11f3f82e39b5fdba958a25a10d6c8d22e6bdab8c?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [{ "name": "edm" }, { "name": "pop dance" }]
+        },
+        {
+          "id": "cded27da-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7808,
+          "name": "Destruction",
+          "slug": "destruction",
+          "coverUrl": "https://images.xceed.me/artists/covers/destruction-artist-xceed-cover-ab4d.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cded282b-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 7809,
+          "name": "Discharge",
+          "slug": "discharge",
+          "coverUrl": "https://images.xceed.me/artists/covers/discharge-artist-xceed-cover-25d7.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0e9a-1035-11ea-b000-06b880e08c2c",
+          "name": "Techno",
+          "slug": "techno"
+        },
+        {
+          "id": "0bce138b-1035-11ea-b000-06b880e08c2c",
+          "name": "EDM",
+          "slug": "edm"
+        }
+      ]
+    },
+    {
+      "id": "8522810b-919c-11e9-846c-06b12363b88e",
+      "legacyId": 39643,
+      "name": "Black Coffee at Teatro Marbella | Special Dreamers",
+      "slug": "black-coffee-at-teatro-marbella-special-dreamers",
+      "startingTime": 1502402340,
+      "endingTime": 1502424000,
+      "coverUrl": "https://images.xceed.me/events/banners/black-coffee-at-teatro-marbella-special-dreamers-marbella-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce9b87c-919c-11e9-846c-06b12363b88e",
+        "legacyId": 1250,
+        "name": "Teatro Marbella",
+        "slug": "teatro-marbella",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/teatro-marbella-club-marbella-xceed-logo.jpg",
+        "coverUrl": "https://images.xceed.me/clubs/covers/teatro-marbella-club-marbella-xceed.jpg",
+        "address": "Camino del \u00c1ngel, Nueva Andaluc\u00eda",
+        "coordinates": {
+          "latitude": 36.5002712,
+          "longitude": -4.9522340999999
+        },
+        "city": {
+          "id": "066b53d8-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 24,
+          "name": "Marbella",
+          "slug": "marbella",
+          "coverUrl": "https://images.xceed.me/cities/covers/marbella-events-xceed.jpg",
+          "timezone": "Europe/Madrid",
+          "currency": "EUR",
+          "country": {
+            "id": "0a75d5ef-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 724,
+            "name": "Espa\u00f1a",
+            "slug": "spain",
+            "coverUrl": "https://images.xceed.me/countries/covers/spain-country-xceed226f.jpeg",
+            "isoCode": "ES"
+          }
+        },
+        "characteristics": []
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce163d-1035-11ea-b000-06b880e08c2c",
+          "name": "Dance",
+          "slug": "dance"
+        },
+        {
+          "id": "0bce1013-1035-11ea-b000-06b880e08c2c",
+          "name": "Hits",
+          "slug": "hits"
+        },
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        }
+      ]
+    },
+    {
+      "id": "85234b00-919c-11e9-846c-06b12363b88e",
+      "legacyId": 39796,
+      "name": "BLACK COFFEE SPECIAL GUEST",
+      "slug": "black-coffee-special-guest",
+      "startingTime": 1502659800,
+      "endingTime": 1502679600,
+      "coverUrl": "https://images.xceed.me/events/banners/black-coffee-special-guest-porto-cervo-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce9cd8f-919c-11e9-846c-06b12363b88e",
+        "legacyId": 1274,
+        "name": "Justme Porto Cervo",
+        "slug": "justme-porto-cervo",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/justme-porto-cervo-club-porto-cervo-xceed-logo-d09d.jpg",
+        "coverUrl": "https://images.xceed.me/clubs/covers/just-cavalli-porto-cervo-club-porto-cervo-xceed-f764.png",
+        "address": "Via Conchiglia 4, Golfo Pevero",
+        "coordinates": { "latitude": 41.113183, "longitude": 9.5376182 },
+        "city": {
+          "id": "066eb0c4-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 256,
+          "name": "Porto Cervo",
+          "slug": "porto-cervo",
+          "coverUrl": "https://images.xceed.me/cities/covers/porto-cervo-events-xceed.jpg",
+          "timezone": "Europe/Rome",
+          "currency": "EUR",
+          "country": {
+            "id": "0a758c4d-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 380,
+            "name": "Italia",
+            "slug": "italy",
+            "coverUrl": "https://images.xceed.me/countries/covers/italy-country-xceedb389.jpeg",
+            "isoCode": "IT"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "44193fd0-a0fb-11ea-bb37-0242ac130002",
+            "name": "Club",
+            "slug": "club"
+          },
+          {
+            "id": "ea58a048-a0fb-11ea-bb37-0242ac130002",
+            "name": "Restaurante",
+            "slug": "restaurant"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce1013-1035-11ea-b000-06b880e08c2c",
+          "name": "Hits",
+          "slug": "hits"
+        },
+        {
+          "id": "0bce1436-1035-11ea-b000-06b880e08c2c",
+          "name": "Hip-hop",
+          "slug": "hip-hop"
+        },
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        }
+      ]
+    },
+    {
+      "id": "853a8629-919c-11e9-846c-06b12363b88e",
+      "legacyId": 48332,
+      "name": "Black Coffee - Milan Fashion Week",
+      "slug": "black-coffee-milan-fashion-week",
+      "startingTime": 1519423200,
+      "endingTime": 1519448400,
+      "coverUrl": "https://images.xceed.me/events/banners/black-coffee-milan-fashion-week-milano-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7cea4989-919c-11e9-846c-06b12363b88e",
+        "legacyId": 1545,
+        "name": "Gate Milano",
+        "slug": "gate-milano",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/gate-milano-club-milano-xceed-logo-a7b7.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/gate-milano-club-milano-xceed-1d3b.jpg",
+        "address": "Via Valtellina 21",
+        "coordinates": { "latitude": 45.4942798, "longitude": 9.1826153 },
+        "city": {
+          "id": "066b6a5d-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 42,
+          "name": "Mil\u00e1n",
+          "slug": "milano",
+          "coverUrl": "https://images.xceed.me/cities/covers/milano-events-xceed.jpg",
+          "timezone": "Europe/Rome",
+          "currency": "EUR",
+          "country": {
+            "id": "0a758c4d-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 380,
+            "name": "Italia",
+            "slug": "italy",
+            "coverUrl": "https://images.xceed.me/countries/covers/italy-country-xceedb389.jpeg",
+            "isoCode": "IT"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "311ec4ae-a0fb-11ea-bb37-0242ac130002",
+            "name": "Local amplio",
+            "slug": "large-venue"
+          },
+          {
+            "id": "44193fd0-a0fb-11ea-bb37-0242ac130002",
+            "name": "Club",
+            "slug": "club"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cdf2db80-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 11802,
+          "name": "Salome",
+          "slug": "salome",
+          "coverUrl": "https://images.xceed.me/artists/covers/salome-artist-xceed-cover-3107.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Crave",
+              "url": "https://p.scdn.co/mp3-preview/7b893929501d1cc4d183ba5050905f682de78e98?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": []
+        },
+        {
+          "id": "cdeaac48-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 6270,
+          "name": "Caravaca",
+          "slug": "caravaca",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        },
+        {
+          "id": "0bce158c-1035-11ea-b000-06b880e08c2c",
+          "name": "Deep House",
+          "slug": "deep-house"
+        }
+      ]
+    },
+    {
+      "id": "854bea13-919c-11e9-846c-06b12363b88e",
+      "legacyId": 53716,
+      "name": "Take it Easy Summer Tour w/ Black Coffee",
+      "slug": "take-it-easy-summer-tour-w-black-coffee",
+      "startingTime": 1529697600,
+      "endingTime": 1529719200,
+      "coverUrl": "https://images.xceed.me/events/banners/take-it-easy-summer-tour-w-black-coffee-milano-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce71101-919c-11e9-846c-06b12363b88e",
+        "legacyId": 292,
+        "name": "Circolo Magnolia",
+        "slug": "circolo-magnolia",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/circolo-magnolia-club-milano-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/circolo-magnolia-club-milano-xceed-2d99.jpg",
+        "address": "Via Circonvallazione Idroscalo, 41",
+        "coordinates": { "latitude": 45.465164, "longitude": 9.279901 },
+        "city": {
+          "id": "066b6a5d-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 42,
+          "name": "Mil\u00e1n",
+          "slug": "milano",
+          "coverUrl": "https://images.xceed.me/cities/covers/milano-events-xceed.jpg",
+          "timezone": "Europe/Rome",
+          "currency": "EUR",
+          "country": {
+            "id": "0a758c4d-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 380,
+            "name": "Italia",
+            "slug": "italy",
+            "coverUrl": "https://images.xceed.me/countries/covers/italy-country-xceedb389.jpeg",
+            "isoCode": "IT"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "311ec4ae-a0fb-11ea-bb37-0242ac130002",
+            "name": "Local amplio",
+            "slug": "large-venue"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cdea1f50-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 5901,
+          "name": "DJLMP",
+          "slug": "djlmp",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde3972d-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 1645,
+          "name": "Bugsy",
+          "slug": "bugsy",
+          "coverUrl": "https://images.xceed.me/artists/covers/bugsy-artist-xceed-cover-0d12.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde54be7-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 2742,
+          "name": "Brina Knauss",
+          "slug": "brina-knauss",
+          "coverUrl": "https://images.xceed.me/artists/covers/brina-knauss-artist-xceed-cover-6668.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Sledi Toku",
+              "url": "https://p.scdn.co/mp3-preview/ffb3670881ad1481a7016e84bbe744f5c3b42b1e?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce0d60-1035-11ea-b000-06b880e08c2c",
+          "name": "House",
+          "slug": "house"
+        },
+        {
+          "id": "0bce0e9a-1035-11ea-b000-06b880e08c2c",
+          "name": "Techno",
+          "slug": "techno"
+        }
+      ]
+    },
+    {
+      "id": "854f0423-919c-11e9-846c-06b12363b88e",
+      "legacyId": 54772,
+      "name": "Natura Sunday Sessions con Black Coffee - Open Air \u0022La Terraza\u0022",
+      "slug": "natura-sunday-sessions-con-black-coffee-open-air-la-terraza",
+      "startingTime": 1530450000,
+      "endingTime": 1530486000,
+      "coverUrl": "https://images.xceed.me/events/banners/natura-sunday-sessions-con-black-coffee-open-air-la-terraza-madrid-xceed.jpg",
+      "coverAspectRatio": "landscape",
+      "externalSalesUrl": null,
+      "venue": {
+        "id": "7ce6cb8e-919c-11e9-846c-06b12363b88e",
+        "legacyId": 149,
+        "name": "Fabrik Madrid",
+        "slug": "fabrik-madrid",
+        "types": ["CLUB"],
+        "logoUrl": "https://images.xceed.me/clubs/logos/fabrik-madrid-club-madrid-xceed-logo.png",
+        "coverUrl": "https://images.xceed.me/clubs/covers/fabrik-madrid-club-madrid-xceed-0e07.jpg",
+        "address": "Avenida de la Industria 82 28970 Humanes de Madrid",
+        "coordinates": { "latitude": 40.265144, "longitude": -3.840555 },
+        "city": {
+          "id": "066b630f-1035-11ea-b000-06b880e08c2c",
+          "legacyId": 36,
+          "name": "Madrid",
+          "slug": "madrid",
+          "coverUrl": "https://images.xceed.me/cities/covers/madrid-events-xceed.jpg",
+          "timezone": "Europe/Madrid",
+          "currency": "EUR",
+          "country": {
+            "id": "0a75d5ef-1035-11ea-b000-06b880e08c2c",
+            "legacyId": 724,
+            "name": "Espa\u00f1a",
+            "slug": "spain",
+            "coverUrl": "https://images.xceed.me/countries/covers/spain-country-xceed226f.jpeg",
+            "isoCode": "ES"
+          }
+        },
+        "characteristics": [
+          {
+            "id": "311ec4ae-a0fb-11ea-bb37-0242ac130002",
+            "name": "Local amplio",
+            "slug": "large-venue"
+          },
+          {
+            "id": "44193fd0-a0fb-11ea-bb37-0242ac130002",
+            "name": "Club",
+            "slug": "club"
+          }
+        ]
+      },
+      "lineup": [
+        {
+          "id": "cde61706-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 3263,
+          "name": "Black Coffee",
+          "slug": "black-coffee",
+          "coverUrl": "https://images.xceed.me/artists/covers/black-coffee-artist-xceed-cover-174a.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Drive - Edit",
+              "url": "https://p.scdn.co/mp3-preview/6988c92195ab34d63d26a3193511ef9a41419806?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [
+            { "name": "afro house" },
+            { "name": "deep house" },
+            { "name": "south african house" },
+            { "name": "south african pop dance" }
+          ]
+        },
+        {
+          "id": "cdf5db22-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 13671,
+          "name": "Alvaro Martin",
+          "slug": "alvaro-martin",
+          "coverUrl": "https://images.xceed.me/artists/covers/alvaro-martin-artist-xceed-cover-f95b.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cdedf4f9-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 8393,
+          "name": "Bianca",
+          "slug": "bianca",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        },
+        {
+          "id": "cde334fa-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 1388,
+          "name": "Cesar Almena",
+          "slug": "cesar-almena",
+          "coverUrl": "https://images.xceed.me/artists/covers/cesar-almena-artist-xceed-cover-22f2.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Shake the party",
+              "url": "https://p.scdn.co/mp3-preview/1b3515b09ba89cbf963aef8fa39defc3e25a2091?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": [{ "name": "re:techno" }]
+        },
+        {
+          "id": "cdea10ac-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 5854,
+          "name": "Nuke",
+          "slug": "nuke",
+          "coverUrl": "https://images.xceed.me/artists/covers/nuke-artist-xceed-cover-6390.jpg",
+          "isGeneric": false,
+          "tracks": [
+            {
+              "name": "Advisor",
+              "url": "https://p.scdn.co/mp3-preview/546a21ab30681baa45652e841fc4cc5123a71d6a?cid=26fa853e56704f3a820c6f7ec8d59212"
+            }
+          ],
+          "musicGenres": []
+        },
+        {
+          "id": "cdea1bc5-480d-11ea-b954-06b880e08c2c",
+          "legacyId": 5889,
+          "name": "Overman",
+          "slug": "overman",
+          "coverUrl": "https://images.xceed.me/static/entities/artist-place-holder.jpg",
+          "isGeneric": false,
+          "tracks": [],
+          "musicGenres": []
+        }
+      ],
+      "musicGenres": [
+        {
+          "id": "0bce1013-1035-11ea-b000-06b880e08c2c",
+          "name": "Hits",
+          "slug": "hits"
+        }
+      ]
+    }
+  ]
+}
