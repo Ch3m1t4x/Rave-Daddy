@@ -1,5 +1,15 @@
 https://technoparty.es/
 https://docs.xceed.me/
-curl --location 'https://events.xceed.me/v1/events?channel=the-music-sanctuary&startTime=1767262135&artists=black-coffee&offset=0&limit=10'
+import requests
+
+url = "https://events.xceed.me/v1/events?channel=the-music-sanctuary&startTime=1767262135&artists=black-coffee&offset=0&limit=10"
+
+payload={}
+headers = {}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
 https://events.xceed.me/v1/events?artists=black-coffee
 https://events.xceed.me/v1/events?city=madrid
