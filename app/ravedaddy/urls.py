@@ -19,12 +19,15 @@ from django.urls import include, path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+from django.templatetags.static import static as estatico
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path("chatbot/", include("chatbot.urls")),
     path("users/", include("users.urls")),
+    path('favicon.ico', RedirectView.as_view(url=estatico('src/favicon.ico'), permanent=True)),
 ]
 
 if settings.DEBUG:

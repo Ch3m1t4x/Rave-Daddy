@@ -57,7 +57,6 @@ async function handleSend() {
   addUserMessage(msg);
   input.value = "";
 
-  // Llamada real al backend
   const res = await fetch("/chatbot/send/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
