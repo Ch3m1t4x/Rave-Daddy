@@ -1,3 +1,5 @@
 .env
 ai_pruebas.py
 scraper_pruebas.py
+__*/
+*.txt
