@@ -17,7 +17,7 @@ def scraping_xceed_events(link, titulo):
 
         for i in range(count):
             texto = h1_element.nth(i).inner_text().strip()
-            if texto == titulo:
+            if texto in titulo.split(" ")[0]:
                 titulo_h1 = h1_element.nth(i)
                 print(titulo_h1.inner_text())
                 break
@@ -29,40 +29,20 @@ def scraping_xceed_events(link, titulo):
         span_precio = page.get_by_test_id("event-tickets-header").get_by_text("€", exact=False)
         precio = span_precio.text_content()
         informacion["price"] = f"Desde {limpiar_formato(precio," ")}"
+        
+        try:
+            h2_element = page.locator("h2")
+            count = h2_element.count()
+            for i in range(count):
+                texto = h2_element.nth(i).inner_text().strip()
+                if texto.lower() == "info":
+                    titulo_h2 = h2_element.nth(i)
+            if titulo_h2:
+                info_html = titulo_h2.locator("xpath=following-sibling::div[1]")
+                info = info_html.inner_text()
+                informacion["info"] = info
+        except Exception as e: 
+            print("No hay info: ",e)        
+                
         browser.close()
     return informacion
-"""
-    # Dentro de ese ancestro, seleccionar el segundo div hijo (que contiene los enlaces)
-    contenedor_enlaces = contenedor_ancestro.locator("div").nth(2)  # nth(1) = segundo div
-    enlaces = contenedor_enlaces.locator("a")
-    total_enlaces = enlaces.count()
-
-    for i in range(total_enlaces):
-        enlace = enlaces.nth(i)
-        texto = enlace.inner_text()
-        href = enlace.get_attribute("href")
-        partes = texto.split("\n")
-        print(f"\nFiesta #{i+1}")
-        print(f"Fiesta: {partes[0]}")
-        print(f"Discoteca: {partes[1]}")
-        print(f"Enlace: {href}")
-
-        # Para buscar por clase
-        # hijos_clase = enlace.locator(".nombre-de-la-clase")  # Selecciona hijos con esa clase
-        # total = hijos_clase.count()
-        # for i in range(total):
-        #     print(hijos_clase.nth(i).inner_text())
-
-
-        # hijos = enlace.locator("*")  # Todos los hijos
-        # total_hijos = hijos.count()  # Todos los nodos hijos del <a>
-        # for i in range(total_hijos):
-        #     hijo = hijos.nth(i)
-        #     try:
-        #         textos[i] = hijo.inner_text()
-        #     except Exception as e:    
-        #         print(f"Hijo #{i} no es html", e)
-    # print(textos)
-else:
-    print("No se encontró ningún h2 que empiece con 'Hoy'.")
-"""
