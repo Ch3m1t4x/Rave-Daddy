@@ -2,6 +2,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
+from events.scraping.xceed import scraping_xceed_general
+from events.scraping.xceed_evento import scraping_xceed_events
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -14,16 +16,17 @@ def normalize_response(result):
     msg = result["messages"][-1]
 
     if isinstance(msg.content, str):
-        return msg.content
+        text = msg.content
 
     if isinstance(msg.content, list):
         text_parts = []
         for block in msg.content:
             if isinstance(block, dict) and "text" in block:
                 text_parts.append(block["text"])
-        return " ".join(text_parts).strip()
+        text = " ".join(text_parts).strip()
 
-    return str(msg.content)
+    text = text.replace("*","")
+    return text
 
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
@@ -35,11 +38,20 @@ def get_weather(location: str) -> str:
 
 
 @tool(description="Get information about techno events")
-def get_ra_events(location: str) -> str:
-    return "Alarico en The Bassement el 31 de noviembre"
+def get_xceed_general(location: str) -> str:
+    fiestas = scraping_xceed_general(location)
+    if fiestas == {}:
+        fiestas = f"No hay fiestas en {location}"
+    return fiestas
 
+@tool(description="Get information about techno events")
+def get_xceed_events(link: str, title: str) -> str:
+    info = scraping_xceed_events(link, title)
+    if info == {}:
+        info = "No existe esa información"
+    return info
 
-tools = [get_weather, get_ra_events]
+tools = [get_weather, get_xceed_general, get_xceed_events]
 
 
 prompt = """
@@ -77,8 +89,9 @@ prompt = """
     Use get_weather only for:
     - Weather information in real Spanish cities.
     
-    Use get_ra_events only for:
+    Use get_xceed_general only for:
     - Techno events, clubs, DJs, nightlife or music-related searches.
+    - If there are no events at the city, suggest to search anywhere near.
 
     Do NOT use any tool for:
     - Weather or partys outside Spain. Instead, reply in character
@@ -89,13 +102,16 @@ prompt = """
     When the user request is unclear, ask a clarifying question in your playful Daddy tone.
     
     ### EVENT SCRAPING RULES:
-    - When user asks for events in a city, you MUST use get_ra_events(city).
-    - If RA provides results, summarize them in your Daddy techno style.
+    - When user asks for events in a city, you MUST use get_xceed_general(city).
+    - If xceed provides results, summarize them in your Daddy techno style.
     - Do not hallucinate events if scraping returns empty.
     - If user asks for a city not supported or ambiguous, ask for clarification.
-
+    - If user asks for anything specific about an event and you dont have the information:
+        - Use get_xceed_events(href, name) being href the link and name the name, both of the get_xceed_general return.
 
     ### STRICT OUTPUT RULES:
+    - If something goes wrong just say that they can try later that you need some rest.
+    - When showing the events from get_xceed_general show each party separately.
     - NEVER output Python objects, arrays, system internal structures.
     - Your final answer must ALWAYS be clean text.
     - When describing tool results, integrate the information naturally into your persona.

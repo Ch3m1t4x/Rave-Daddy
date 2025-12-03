@@ -13,6 +13,37 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     gettext \
+    libglib2.0-0 \
+    libnss3 \
+    libgobject-2.0-0 \
+    libdbus-1-3 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libatspi2.0-0 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libxshmfence1 \
+    libglu1-mesa \
+    libpango-1.0-0 \
+    libcairo2 \
+    libasound2 \
+    libxext6 \
+    libxfixes3 \
+    libxcursor1 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxss1 \
+    libdrm2 \
+    libexpat1 \
+    libgbm1 \
+    libgtk-3-0 \
+    libnspr4 \
+    libxrender1 \
+    libxcb1 \
+    wget \
   && rm -rf /var/lib/apt/lists/*
 
 # Copiamos requirements e instalamos dependencias Python
