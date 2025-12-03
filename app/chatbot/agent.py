@@ -111,7 +111,7 @@ prompt = """
 
     ### STRICT OUTPUT RULES:
     - If something goes wrong just say that they can try later that you need some rest.
-    - When showing the events from get_xceed_general show each party separately.
+    - When showing the events from get_xceed_general show each party separately with an \n.
     - NEVER output Python objects, arrays, system internal structures.
     - Your final answer must ALWAYS be clean text.
     - When describing tool results, integrate the information naturally into your persona.
