@@ -1,9 +1,59 @@
 from playwright.sync_api import sync_playwright
+from events.models import Ciudad, Evento
+from datetime import date
+
+MESES = {
+    "Ene": 1,
+    "Feb": 2,
+    "Mar": 3,
+    "Abr": 4,
+    "May": 5,
+    "Jun": 6,
+    "Jul": 7,
+    "Ago": 8,
+    "Sep": 9,
+    "Oct": 10,
+    "Nov": 11,
+    "Dic": 12,
+}
+
+def parsear_fecha(fecha_str):
+    dia_str, mes_str = fecha_str.split(" ")
+
+    dia = int(dia_str)
+    mes = MESES[mes_str]
+    
+    hoy = date.today()
+    anio = hoy.year
+    if mes < hoy.month:
+        anio += 1
+
+    return date(anio, mes, dia)
 
 def limpiar_formato(texto):
     fecha = texto.split(",")
     fecha_limpia = fecha[-1].strip()
     return fecha_limpia
+
+
+def guardar_eventos_general(ciudad_nombre, fiestas):
+    # Verifica si la ciudad ya existe
+    ciudad, _ = Ciudad.objects.get_or_create(nombre=ciudad_nombre)
+
+    for fecha, eventos in fiestas.items():
+        fecha_limpia = parsear_fecha(fecha)
+        for nombre_fiesta, detalles in eventos.items():
+            # Crea el evento
+            evento, _ = Evento.objects.get_or_create(
+                enlace=detalles["link"],
+                defaults={
+                    "ciudad":ciudad,
+                    "nombre":nombre_fiesta,
+                    "club":detalles['club'],
+                    "fecha":fecha_limpia,
+                    "enlace":detalles['link']
+                }
+            )
 
 def scraping_xceed_general(ciudad):
     fiestas = {}
@@ -13,26 +63,21 @@ def scraping_xceed_general(ciudad):
         page = browser.new_page()
         page.goto(f"https://xceed.me/es/{ciudad.lower()}/events")
 
-        # Localizar todos los h2 y filtrar el que comienza con "Hoy"
-
-
         h2_elements = page.locator("h2")
         count = h2_elements.count()
 
-        fecha_h2 = None
         for i in range(count):
             texto = h2_elements.nth(i).inner_text().strip()
             if texto.endswith("Dic"):
                 fecha = limpiar_formato(texto)
                 dias.append(h2_elements.nth(i))
                 fiestas[fecha]={}
-                # Mirar para guardar el texto por un lado y el pointer en otro
         for dia in dias:
             dia_fecha = limpiar_formato(dia.inner_text())
             
             contenedor_ancestro = dia.locator("xpath=ancestor::div[3]")
             
-            contenedor_enlaces = contenedor_ancestro.locator("div").nth(2)  # nth(1) = segundo div
+            contenedor_enlaces = contenedor_ancestro.locator("div").nth(2)
             enlaces = contenedor_enlaces.locator("a")
             total_enlaces = enlaces.count()
 
@@ -45,8 +90,9 @@ def scraping_xceed_general(ciudad):
                 discoteca = partes[1]
                 fiestas[dia_fecha][nombre_fiesta] = {
                     "club": discoteca,
-                    "link": href
+                    "link": f"https://xceed.me{href}"
                 }
 
         browser.close()
+    guardar_eventos_general(ciudad, fiestas)    
     return fiestas

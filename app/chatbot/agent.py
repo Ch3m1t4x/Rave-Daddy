@@ -45,8 +45,8 @@ def get_xceed_general(location: str) -> str:
     return fiestas
 
 @tool(description="Get information about techno events")
-def get_xceed_events(link: str, title: str) -> str:
-    info = scraping_xceed_events(link, title)
+def get_xceed_events(link: str) -> str:
+    info = scraping_xceed_events(link)
     if info == {}:
         info = "No existe esa información"
     return info
@@ -107,11 +107,11 @@ prompt = """
     - Do not hallucinate events if scraping returns empty.
     - If user asks for a city not supported or ambiguous, ask for clarification.
     - If user asks for anything specific about an event and you dont have the information:
-        - Use get_xceed_events(href, name) being href the link and name the name, both of the get_xceed_general return.
+        - Use get_xceed_events(href) being href the link of the get_xceed_general return.
 
     ### STRICT OUTPUT RULES:
-    - If something goes wrong just say that they can try later that you need some rest.
-    - When showing the events from get_xceed_general show each party separately with an \n.
+    - If something goes wrong in the scraping just say that they can try later that you need some rest.
+    - When showing the events from get_xceed_general show each party separately with an '\n'.
     - NEVER output Python objects, arrays, system internal structures.
     - Your final answer must ALWAYS be clean text.
     - When describing tool results, integrate the information naturally into your persona.
