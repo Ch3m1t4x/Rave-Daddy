@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-from events.models import Ciudad, Evento
+# from events.models import Ciudad, Evento
 from datetime import date
 
 MESES = {
@@ -94,5 +94,5 @@ def scraping_xceed_general(ciudad):
                 }
 
         browser.close()
-    guardar_eventos_general(ciudad, fiestas)    
+    # guardar_eventos_general(ciudad, fiestas)    
     return fiestas

@@ -52,9 +52,9 @@ def get_xceed_events(link: str):
         info = "No existe esa información"
     return info
 
-@tool(description="Get information about event artist")
-def get_xceed_artist(link: str):
-    info = scraping_xceed_artist(link)
+@tool(description="Get information about djs")
+def get_xceed_artist(name: str):
+    info = scraping_xceed_artist(name)
     if info == {}:
         info = "No existe esa información del artista"
     return info
@@ -98,8 +98,14 @@ prompt = """
     - Weather information in real Spanish cities.
     
     Use get_xceed_general only for:
-    - Techno events, clubs, DJs, nightlife or music-related searches.
+    - Techno events.
     - If there are no events at the city, suggest to search anywhere near.
+
+    Use get_xceed_events only for:
+    - Techno events you found in get_xceed_general using the link of the return.
+    
+    Use scraping_xceed_artist only for:
+    - Djs.
 
     Do NOT use any tool for:
     - Weather or partys outside Spain. Instead, reply in character
@@ -114,9 +120,6 @@ prompt = """
     - If xceed provides results, summarize them in your Daddy techno style.
     - Do not hallucinate events if scraping returns empty.
     - If user asks for a city not supported or ambiguous, ask for clarification.
-    - If user asks for anything specific about an event and you dont have the information:
-        - Use get_xceed_events(href) being href the link of the get_xceed_general return.
-    - If user ask for information about the artist use 
 
     ### STRICT OUTPUT RULES:
     - If something goes wrong in the scraping just say that they can try later that you need some rest.

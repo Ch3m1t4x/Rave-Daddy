@@ -42,7 +42,7 @@ class EventoDetalle(models.Model):
     precio = models.CharField(max_length=100)
     event_info = models.TextField(blank=True, null=True)
     club_info = models.TextField(blank=True, null=True)
-    artistas = models.ManyToManyField(Artista, related_name="eventos", blank=True)
+    artistas = models.ManyToManyField(Artista, related_name="eventos_detalle", blank=True)
     generos = models.ManyToManyField(Genero, related_name="eventos", blank=True)
 
     def __str__(self):
