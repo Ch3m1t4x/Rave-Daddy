@@ -27,9 +27,9 @@ class Genero(models.Model):
 
 # Modelo para almacenar artistas y sus detalles
 class Artista(models.Model):
-    nombre = models.CharField(max_length=200)
-    enlace = models.URLField(unique=True)
+    nombre = models.CharField(max_length=200, unique=True)
     generos = models.ManyToManyField(Genero, related_name="artistas", blank=True)
+    eventos = models.ManyToManyField(Evento, related_name="artistas", blank=True)
     info = models.TextField(blank=True)
 
     def __str__(self):

@@ -4,6 +4,7 @@ from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
 from events.scraping.xceed import scraping_xceed_general
 from events.scraping.xceed_evento import scraping_xceed_events
+from events.scraping.xceed_artista import scraping_xceed_artist
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -38,20 +39,27 @@ def get_weather(location: str) -> str:
 
 
 @tool(description="Get information about techno events")
-def get_xceed_general(location: str) -> str:
+def get_xceed_general(location: str):
     fiestas = scraping_xceed_general(location)
     if fiestas == {}:
         fiestas = f"No hay fiestas en {location}"
     return fiestas
 
-@tool(description="Get information about techno events")
-def get_xceed_events(link: str) -> str:
+@tool(description="Get information about techno events details")
+def get_xceed_events(link: str):
     info = scraping_xceed_events(link)
     if info == {}:
         info = "No existe esa información"
     return info
 
-tools = [get_weather, get_xceed_general, get_xceed_events]
+@tool(description="Get information about event artist")
+def get_xceed_artist(link: str):
+    info = scraping_xceed_artist(link)
+    if info == {}:
+        info = "No existe esa información del artista"
+    return info
+
+tools = [get_weather, get_xceed_general, get_xceed_events, get_xceed_artist]
 
 
 prompt = """
@@ -108,6 +116,7 @@ prompt = """
     - If user asks for a city not supported or ambiguous, ask for clarification.
     - If user asks for anything specific about an event and you dont have the information:
         - Use get_xceed_events(href) being href the link of the get_xceed_general return.
+    - If user ask for information about the artist use 
 
     ### STRICT OUTPUT RULES:
     - If something goes wrong in the scraping just say that they can try later that you need some rest.
