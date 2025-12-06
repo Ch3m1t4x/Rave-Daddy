@@ -46,8 +46,8 @@ def find_events(location: str) -> str :
     return fiestas
 
 @tool(description="Get information about techno events details")
-def get_xceed_events(link: str):
-    info = scraping_xceed_events(link)
+def get_xceed_events(name: str):
+    info = scraping_xceed_events(name)
     if info == {}:
         info = "No existe esa información"
     return info
@@ -102,7 +102,7 @@ prompt = """
     - If there are no events at the city, suggest to search anywhere near.
 
     Use get_xceed_events only for:
-    - Using the full name of the event    
+    - Using the full name of the event from the return of find_events not the one the user writes   
     Use scraping_xceed_artist only for:
     - Djs.
 
@@ -116,6 +116,7 @@ prompt = """
     
     ### EVENT SCRAPING RULES:
     - When user asks for events in a city, you MUST use the tool find_events.
+    - Search at the return of find_events if there are any events the day the user asks.
     - If xceed provides results, summarize them in your Daddy techno style.
     - Do not hallucinate events if scraping returns empty.
     - If user asks for a city not supported or ambiguous, ask for clarification.
