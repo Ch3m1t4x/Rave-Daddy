@@ -1,5 +1,4 @@
-from playwright.sync_api import sync_playwright
-# from events.models import Ciudad, Evento
+from events.models import Ciudad, Evento
 from datetime import date
 
 MESES = {
@@ -35,9 +34,14 @@ def limpiar_formato(texto):
     fecha_limpia = fecha[-1].strip()
     return fecha_limpia
 
+def get_events(ciudad):
+    ciudad_obj = Ciudad.objects.get(nombre = ciudad.lower())
+    eventos = Evento.objects.filter(ciudad=ciudad_obj)
+    return "\n".join(str(evento) for evento in eventos)
 
 def guardar_eventos_general(ciudad_nombre, fiestas):
-    # Verifica si la ciudad ya existe
+    
+    # Verifica si la ciudad ya existe o la crea
     ciudad, _ = Ciudad.objects.get_or_create(nombre=ciudad_nombre)
 
     for fecha, eventos in fiestas.items():
@@ -56,8 +60,11 @@ def guardar_eventos_general(ciudad_nombre, fiestas):
             )
 
 def scraping_xceed_general(ciudad):
+    from playwright.sync_api import sync_playwright    
     fiestas = {}
     dias = []
+    mes = date.today().month
+    mes_busqueda = list(MESES.keys())[mes-1]
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
@@ -68,7 +75,7 @@ def scraping_xceed_general(ciudad):
 
         for i in range(count):
             texto = h2_elements.nth(i).inner_text().strip()
-            if texto.endswith("Dic"):
+            if texto.endswith(mes_busqueda):
                 fecha = limpiar_formato(texto)
                 dias.append(h2_elements.nth(i))
                 fiestas[fecha]={}
@@ -94,5 +101,5 @@ def scraping_xceed_general(ciudad):
                 }
 
         browser.close()
-    # guardar_eventos_general(ciudad, fiestas)    
+    guardar_eventos_general(ciudad, fiestas)    
     return fiestas

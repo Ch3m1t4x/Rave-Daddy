@@ -2,7 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
-from events.scraping.xceed import scraping_xceed_general
+from events.scraping.xceed import get_events
 from events.scraping.xceed_evento import scraping_xceed_events
 from events.scraping.xceed_artista import scraping_xceed_artist
 from dotenv import load_dotenv
@@ -38,10 +38,10 @@ def get_weather(location: str) -> str:
     return "It's sunny."
 
 
-@tool(description="Get information about techno events")
-def get_xceed_general(location: str):
-    fiestas = scraping_xceed_general(location)
-    if fiestas == {}:
+@tool(description="Get information about techno events in a city")
+def find_events(location: str) -> str :
+    fiestas = get_events(location)
+    if fiestas == "":
         fiestas = f"No hay fiestas en {location}"
     return fiestas
 
@@ -59,7 +59,7 @@ def get_xceed_artist(name: str):
         info = "No existe esa información del artista"
     return info
 
-tools = [get_weather, get_xceed_general, get_xceed_events, get_xceed_artist]
+tools = [get_weather, find_events, get_xceed_events, get_xceed_artist]
 
 
 prompt = """
@@ -97,13 +97,12 @@ prompt = """
     Use get_weather only for:
     - Weather information in real Spanish cities.
     
-    Use get_xceed_general only for:
+    Use find_events only for:
     - Techno events.
     - If there are no events at the city, suggest to search anywhere near.
 
     Use get_xceed_events only for:
-    - Techno events you found in get_xceed_general using the link of the return.
-    
+    - Using the full name of the event    
     Use scraping_xceed_artist only for:
     - Djs.
 
@@ -116,14 +115,13 @@ prompt = """
     When the user request is unclear, ask a clarifying question in your playful Daddy tone.
     
     ### EVENT SCRAPING RULES:
-    - When user asks for events in a city, you MUST use get_xceed_general(city).
+    - When user asks for events in a city, you MUST use the tool find_events.
     - If xceed provides results, summarize them in your Daddy techno style.
     - Do not hallucinate events if scraping returns empty.
     - If user asks for a city not supported or ambiguous, ask for clarification.
 
     ### STRICT OUTPUT RULES:
     - If something goes wrong in the scraping just say that they can try later that you need some rest.
-    - When showing the events from get_xceed_general show each party separately with an '\n'.
     - NEVER output Python objects, arrays, system internal structures.
     - Your final answer must ALWAYS be clean text.
     - When describing tool results, integrate the information naturally into your persona.

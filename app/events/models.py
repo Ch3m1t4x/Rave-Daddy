@@ -16,7 +16,7 @@ class Evento(models.Model):
     enlace = models.URLField(unique=True)
 
     def __str__(self):
-        return f"{self.nombre} - {self.fecha}"
+        return f"Name: {self.nombre}, Date: {self.fecha}, Club: {self.club}"
 
 # Modelo para almacenar generos de forma centralizada    
 class Genero(models.Model):

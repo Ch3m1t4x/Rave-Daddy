@@ -7,3 +7,4 @@ langchain==1.0.0
 langchain-google-genai
 langgraph-prebuilt==1.0.4
 playwright==1.46.0
+django-crontab==0.7.1

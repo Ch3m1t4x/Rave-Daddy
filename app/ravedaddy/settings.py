@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     'chatbot',
     'users',
     'events',
@@ -143,3 +144,9 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # carpeta de desarrollo opcional
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Automatizacion de la busqueda
+CRONJOBS = [
+    ('0 11 * * 1', 'events.scraping.cron.buscar_eventos'),
+]

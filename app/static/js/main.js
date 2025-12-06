@@ -45,7 +45,7 @@ function addUserMessage(text) {
 function addBotMessage(text) {
   const bubble = document.createElement("div");
   bubble.classList.add("bubble", "bot");
-  bubble.textContent = text;
+  bubble.innerHTML = text.replace(/\n/g, "<br>");
   chatBox.appendChild(bubble);
   chatBox.scrollTop = chatBox.scrollHeight;
 }

@@ -44,13 +44,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxrender1 \
     libxcb1 \
     wget \
+    cron \
+    lsb-base \
+    procps \
   && rm -rf /var/lib/apt/lists/*
 
 # Copiamos requirements e instalamos dependencias Python
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-RUN playwright install
+RUN playwright install chromium
 
 
 # Copiamos el script de entrada
@@ -61,4 +64,4 @@ RUN chmod +x /entrypoint.sh
 # Exponemos puerto 8000 para quien quiera mapearlo
 EXPOSE 8000
 
-CMD ["bash", "-c", "/entrypoint.sh && python manage.py runserver 0.0.0.0:8000"]
+CMD ["bash", "-c", "service cron start && /entrypoint.sh && python manage.py runserver 0.0.0.0:8000"]
