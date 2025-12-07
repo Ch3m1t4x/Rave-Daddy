@@ -1,5 +1,5 @@
-from events.models import Ciudad, Evento
 from datetime import date
+from events.models import Ciudad, Evento
 
 MESES = {
     "Ene": 1,
@@ -37,10 +37,23 @@ def limpiar_formato(texto):
 def get_events(ciudad):
     ciudad_obj = Ciudad.objects.get(nombre = ciudad.lower())
     eventos = Evento.objects.filter(ciudad=ciudad_obj)
-    return "\n".join(str(evento) for evento in eventos)
+    bot = {}
+    for evento in eventos:
+        fecha_str = evento.fecha.strftime("%Y-%m-%d")
+        partes = evento.enlace.split("/")
+        url_sin_ultimo = partes[-2]
+        if fecha_str not in bot:
+            bot[fecha_str] = {}
+        bot[fecha_str][evento.nombre] = {
+            "name": evento.nombre,
+            "dame_detalles_input": f"/{url_sin_ultimo}/",
+            "More": f"Club : {evento.club}"
+        }
+
+    return bot
 
 def guardar_eventos_general(ciudad_nombre, fiestas):
-    
+    Evento.objects.filter(fecha__lt=date.today()).delete()
     # Verifica si la ciudad ya existe o la crea
     ciudad, _ = Ciudad.objects.get_or_create(nombre=ciudad_nombre)
 
@@ -87,7 +100,6 @@ def scraping_xceed_general(ciudad):
             contenedor_enlaces = contenedor_ancestro.locator("div").nth(2)
             enlaces = contenedor_enlaces.locator("a")
             total_enlaces = enlaces.count()
-
             for i in range(total_enlaces):
                 enlace = enlaces.nth(i)
                 texto = enlace.inner_text()
@@ -101,5 +113,5 @@ def scraping_xceed_general(ciudad):
                 }
 
         browser.close()
-    guardar_eventos_general(ciudad, fiestas)    
+    guardar_eventos_general(ciudad, fiestas)
     return fiestas

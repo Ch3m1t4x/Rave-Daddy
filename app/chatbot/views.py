@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .agent import chat_with_memory
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 
 @csrf_exempt
 def chat_api(request):
@@ -21,11 +21,21 @@ def chat_api(request):
     # Convertimos la historia en HumanMessage / AIMessage reales
     history = []
     for msg in history_data:
-        if msg["role"] == "user":
-            history.append(HumanMessage(content=msg["content"]))
-        else:
-            from langchain_core.messages import AIMessage
-            history.append(AIMessage(content=msg["content"]))
+        role = msg.get("role")
+        content = msg.get("content")
+
+        if role == "user":
+            history.append(HumanMessage(content=content))
+        elif role == "assistant":
+            history.append(AIMessage(content=content))
+        elif role == "tool":
+            history.append(
+                ToolMessage(
+                    content=content,
+                    tool_call_id=msg.get("tool_call_id"),
+                    name=msg.get("name"),
+                )
+            )
 
     # Ejecutar agente
     updated_history, reply = chat_with_memory(user_message, history)
@@ -33,11 +43,17 @@ def chat_api(request):
     # Guardar historia en sesión
     session_friendly = []
     for msg in updated_history:
-        if msg.__class__.__name__ == "HumanMessage":
+        if isinstance(msg, HumanMessage):
             session_friendly.append({"role": "user", "content": msg.content})
-        else:
+        elif isinstance(msg, AIMessage):
             session_friendly.append({"role": "assistant", "content": msg.content})
-
+        elif isinstance(msg, ToolMessage):
+            session_friendly.append({
+                "role": "tool",
+                "content": msg.content,
+                "tool_call_id": getattr(msg, "tool_call_id", None),
+                "name": getattr(msg, "name", None),
+            })
     request.session["chat_history"] = session_friendly
     request.session.modified = True
 
