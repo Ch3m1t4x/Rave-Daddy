@@ -35,19 +35,16 @@ def limpiar_formato(texto):
     return fecha_limpia
 
 def get_events(ciudad):
+    # dt = date.today()
+    # fecha_buscar = date(dt.year, dt.month, day)
     ciudad_obj = Ciudad.objects.get(nombre = ciudad.lower())
     eventos = Evento.objects.filter(ciudad=ciudad_obj)
     bot = {}
     for evento in eventos:
-        fecha_str = evento.fecha.strftime("%Y-%m-%d")
-        partes = evento.enlace.split("/")
-        url_sin_ultimo = partes[-2]
-        if fecha_str not in bot:
-            bot[fecha_str] = {}
-        bot[fecha_str][evento.nombre] = {
+        bot[evento.nombre] = {
             "name": evento.nombre,
-            "dame_detalles_input": f"/{url_sin_ultimo}/",
-            "More": f"Club : {evento.club}"
+            "fecha": evento.fecha,
+            "Club": evento.club,
         }
 
     return bot

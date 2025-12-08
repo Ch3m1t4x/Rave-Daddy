@@ -3,7 +3,7 @@ from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
 from events.scraping.xceed import get_events
-from events.scraping.xceed_evento import scraping_xceed_events
+from events.scraping.xceed_evento import get_events_details
 from events.scraping.xceed_artista import scraping_xceed_artist
 from dotenv import load_dotenv
 
@@ -54,8 +54,8 @@ def find_events(location: str):
     return fiestas
 
 @tool(description="Get details about techno events")
-def dame_detalles(link: str):
-    info = scraping_xceed_events(link)
+def dame_detalles(name: str):
+    info = get_events_details(name)
     if info == {}:
         info = "No existe esa información"
     return info
@@ -111,21 +111,9 @@ prompt = """
     **dame_detalles**:
     - Find more information about the events you get from find_events.
     ** ALWAYS USE dame_detalles WHEN USER ASK ABOUT A SPECIFIC EVENT**
-    - Use nothing but the link of the event from the output of find_events.
+    - Use the full name of the event usign the toolMessage of find_events.
     - Do not include names, dates, or other information. 
-    - Do not ask the user for the link, get from here: 
-    Example:
-        find_events tool output:
-        2025-12-07:
-            Istar x Moojo:
-                name: Istar x Moojo
-                link: /istar-x-moojo/
-            CHICLE 7 DE DICIEMBRE “Domingo víspera de fiesta”:
-                name: CHICLE 7 DE DICIEMBRE “Domingo víspera de fiesta”
-                link: /chicle-7-de-diciembre-domingo-vispera-de-fiesta/
-        user ask for Istar:
-            you use dame_detalles(/istar-x-moojo/)
-    - Do not include any other information than the link itself.
+    
     
     Use scraping_xceed_artist only for:
     - Djs.
@@ -139,7 +127,7 @@ prompt = """
     When the user request is unclear, ask a clarifying question in your playful Daddy tone.
     
     ### EVENT RULES:
-    - Never give the link of the event to the user
+    - Never give the dame_detalles_input of the event to the user
     - When user asks for events in a city, you MUST use the tool find_events.
     - Search at the return of find_events if there are any events the day the user asks.
     - When asked of a specific event of the return of find_events, use dame_detalles.

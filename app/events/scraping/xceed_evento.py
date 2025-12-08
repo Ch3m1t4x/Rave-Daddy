@@ -6,6 +6,11 @@ def limpiar_formato(texto, formato):
     texto_limpio = separado[-1].strip()
     return texto_limpio
 
+def get_events_details(name):
+    e_obj = Evento.objects.get(nombre__icontains = name)
+    e_obj_det = EventoDetalle.objects.get(evento = e_obj)
+    return str(e_obj_det)
+
 def obtener_o_crear_generos(generos):
     genero_objs = []
     for g in generos:
@@ -17,45 +22,46 @@ def obtener_o_crear_artistas(artistas, obj_detalle):
     evento = obj_detalle.evento
     artistas_objs = []
     for a in artistas:
-        artista_obj, _ = Artista.objects.get_or_create(nombre=a.get("artist_name"))
+        artista_obj, _ = Artista.objects.get_or_create(nombre=a)
         artista_obj.eventos.add(evento)
         artistas_objs.append(artista_obj)
     return artistas_objs
 
-def guardar_evento_detalles(data, obj):
-    obj.horario = data.get("schedule", "")
-    obj.precio = data.get("price", "")
-    obj.event_info = data.get("event_info", "")
-    obj.club_info = data.get("club_info", "")
+def guardar_evento_detalles(data, enlace):
+    evento = Evento.objects.get(enlace = enlace)
+    evento_detalle = EventoDetalle.objects.create(
+        evento = evento,
+        horario = data.get("schedule", ""),
+        precio = data.get("price", ""),
+        event_info = data.get("event_info", ""),
+        club_info = data.get("club_info", ""),
+    )
     
     if data.get("djs"):
-        artistas_obj = obtener_o_crear_artistas(data.get("djs"), obj)
-        obj.artistas.set(artistas_obj)
+        artistas_obj = obtener_o_crear_artistas(data.get("djs"), evento_detalle)
+        evento_detalle.artistas.set(artistas_obj)
     if data.get("genres"):
         generos_objs = obtener_o_crear_generos(data.get("genres"))
-        obj.generos.set(generos_objs)
-    return obj
-
+        evento_detalle.generos.set(generos_objs)
+    print(f"{evento} Hecho")
+    
 def scraping_xceed_events(enlace):
-    evento_obj = Evento.objects.get(enlace__contains=enlace)
-        
-    evento_detalle_obj, seguir = EventoDetalle.objects.get_or_create(evento = evento_obj)
-    # if seguir:
     informacion = {}
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto(evento_obj.enlace)
-                                        # mirar si sacar los precios de todas las entradas
+        page.goto(enlace)
 
         # Busca la informacion sobre el horario de la fiesta
         horario = page.locator("header").locator("p").inner_text()
         informacion["schedule"] = limpiar_formato(horario,",")
 
-        span_precio = page.get_by_test_id("event-tickets-header").get_by_text("€", exact=False)
-        precio = span_precio.text_content()
-        informacion["price"] = f"Desde {limpiar_formato(precio," ")}"
-
+        try:
+            span_precio = page.get_by_test_id("event-tickets-header").get_by_text("€", exact=False)
+            precio = span_precio.text_content()
+            informacion["price"] = f"Desde {limpiar_formato(precio," ")}"
+        except:
+            informacion['price'] = "Apuntate por listas"
         # Busca informacion si hay sobre el club  
         club_html = page.locator("//*[@id='venue']").get_by_test_id("expandable-text-content")
         informacion['club_info'] = club_html.inner_text() if club_html.count() else "No hay información del club"
@@ -80,8 +86,5 @@ def scraping_xceed_events(enlace):
             artistas_textos = artistas_textos.all_inner_texts()
             informacion['djs'] = [ nombre.split("\n")[0] for nombre in artistas_textos ]
         browser.close()
-    evento_detalle_obj = guardar_evento_detalles(informacion, evento_detalle_obj)
-    print(str(evento_detalle_obj))
+    guardar_evento_detalles(informacion, enlace)
     return informacion
-    # else:
-    #     return str(evento_detalle_obj)
