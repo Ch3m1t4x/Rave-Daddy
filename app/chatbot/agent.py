@@ -1,7 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 from events.scraping.xceed import get_events
 from events.scraping.xceed_evento import get_events_details
 from events.scraping.xceed_artista import scraping_xceed_artist
@@ -47,24 +47,16 @@ def get_weather(location: str) -> str:
 @tool(description="Get information about techno events in a city")
 def find_events(location: str):
     fiestas = get_events(location)
-    # fiestas = get_events(location)
-    if fiestas == "":
-        fiestas = f"No hay fiestas en {location}"
-    # return fiestas, info
     return fiestas
 
 @tool(description="Get details about techno events")
 def dame_detalles(name: str):
     info = get_events_details(name)
-    if info == {}:
-        info = "No existe esa información"
-    return info
+    return str(info)
 
 @tool(description="Get information about djs")
 def find_djs(name: str):
     info = scraping_xceed_artist(name)
-    if info == {}:
-        info = "No existe esa información del artista"
     return info
 
 tools = [get_weather, find_events, dame_detalles, find_djs]
@@ -108,8 +100,9 @@ prompt = """
     Si no hay eventos, sugiere lugares cercanos en tu tono de Rave Daddy.
 
     REGLA ABSOLUTA 2 — dame_detalles SIEMPRE  
-    Cuando el usuario pregunte por un evento específico:  
+    Cuando el usuario pregunte por un evento específico: 
     Debes llamar a dame_detalles(event_name).  
+    When you call dame_detalles, you must always generate a response integrating the tool output for the user. Do not stop after the tool call. Do not return 'No data'. 
 
     Instrucciones estrictas para dame_detalles:
     - El nombre del evento debe proceder exclusivamente del ToolMessage que devuelve find_events.
@@ -126,7 +119,7 @@ prompt = """
     "Tuesday at Istar": {...}
     }
 
-    Usuario: "Háblame de Starina"
+    Usuario: "Dame dettales de Starina"
 
     Debes llamar a:
     dame_detalles("Starina ft. DJH + Diego Navarro + Akira + Kanti")
@@ -150,7 +143,6 @@ prompt = """
     ==========================
         EVENT HANDLING RULES
     ==========================
-    - Nunca muestres al usuario el input exacto utilizado para dame_detalles.
     - Nunca muestres objetos Python, arrays, ni estructuras internas.
     - La salida final siempre debe ser texto plano.
     - Si find_events devuelve resultados, intégralos con tu personalidad.
@@ -174,15 +166,63 @@ prompt = """
 
 agent = create_react_agent(model=llm, tools=tools, prompt=prompt)
 
+def stringify_tool_output(output):
+    """
+    Convierte la salida de una tool (dict/list) a un string plano que Gemini pueda usar.
+    """
+    if isinstance(output, dict):
+        lines = []
+        for k, v in output.items():
+            if isinstance(v, dict):
+                sub_lines = [f"{subk}: {subv}" for subk, subv in v.items()]
+                lines.append(f"{k}:\n" + "\n".join(sub_lines))
+            else:
+                lines.append(f"{k}: {v}")
+        return "\n".join(lines)
+    elif isinstance(output, list):
+        return "\n".join(str(item) for item in output)
+    else:
+        return str(output)
+    
 def chat_with_memory(user_message: str, history: list):
-
+    # Añadir mensaje del usuario
     user_msg = HumanMessage(content=user_message)
     history.append(user_msg)
-    result = agent.invoke({"messages": history})
 
+    # Primera invocación
+    result = agent.invoke({"messages": history})
     new_messages = result['messages']
 
-    reply = new_messages[-1].content
+    # Añadir ToolMessages y AIMessage al historial
+    for msg in new_messages:
+        if msg.__class__.__name__ in ["ToolMessage", "AIMessage", "HumanMessage"]:
+            if msg.__class__.__name__ == "ToolMessage" and isinstance(msg.content, (dict, list)):
+                msg.content = stringify_tool_output(msg.content)
+            history.append(msg)
+
+    # Revisar si necesitamos forzar la respuesta final
+    last_msg = new_messages[-1]
+    needs_forcing = False
+    if last_msg.__class__.__name__ == "ToolMessage":
+        needs_forcing = True
+    elif last_msg.__class__.__name__ == "AIMessage" and (not last_msg.content or last_msg.content.strip().lower() in ["no data", ""]):
+        needs_forcing = True
+
+    if needs_forcing:
+        # Forzar que el agente genere un AIMessage final
+        forced_result = agent.invoke({"messages": history})
+        forced_messages = forced_result['messages']
+
+        # Añadir al historial
+        for msg in forced_messages:
+            if msg.__class__.__name__ in ["ToolMessage", "AIMessage", "HumanMessage"]:
+                if msg.__class__.__name__ == "ToolMessage" and isinstance(msg.content, (dict, list)):
+                    msg.content = stringify_tool_output(msg.content)
+                history.append(msg)
+
+        reply = forced_messages[-1].content
+        new_messages.extend(forced_messages)  # mantener todos los mensajes generados
+    else:
+        reply = last_msg.content
 
     return new_messages, normalize_response(reply)
-

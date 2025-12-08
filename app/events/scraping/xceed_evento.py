@@ -9,18 +9,7 @@ def limpiar_formato(texto, formato):
 def get_events_details(name):
     e_obj = Evento.objects.get(nombre__icontains = name)
     e_obj_det = EventoDetalle.objects.get(evento = e_obj)
-    artistas_nombres = ", ".join([a.nombre for a in e_obj_det.artistas.all()])
-    generos_nombres = ", ".join([g.nombre for g in e_obj_det.generos.all()])
-    e_obj_det_salida = {
-        "Evento": e_obj_det.evento.nombre,
-        "Horario": e_obj_det.horario,
-        "Precio": e_obj_det.precio,
-        "Info": e_obj_det.event_info,
-        "Club info": e_obj_det.club_info,
-        "Artistas": artistas_nombres,
-        "Géneros": generos_nombres
-    }
-    return e_obj_det_salida
+    return str(e_obj_det)
 
 def obtener_o_crear_generos(generos):
     genero_objs = []
