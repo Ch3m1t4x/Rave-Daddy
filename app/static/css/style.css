@@ -16,6 +16,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "ChatFont";
+  src: url("/static/fonts/Montserrat-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -270,6 +277,7 @@ body {
 }
 
 .chat-section {
+  font-family: "ChatFont", Arial, Helvetica, sans-serif;
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -331,6 +339,10 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.chat-input-area input{
+  font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
 }
 
 .chat-input {
@@ -447,4 +459,13 @@ body {
     color: #ff4d4d;
     font-size: 0.9rem;
     margin-bottom: 10px;
+}
+
+.welcome {
+  font-family: "ChatFont", Arial, Helvetica, sans-serif;
+}
+
+input.error {
+  border: 1px solid #ff4d4d !important;
+  box-shadow: 0 0 4px #ff4d4d;
 }

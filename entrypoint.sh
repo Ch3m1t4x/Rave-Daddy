@@ -15,7 +15,7 @@ try:
     port = os.getenv("POSTGRES_PORT", "5432")
     conn = psycopg2.connect(dbname=db, user=user, password=password, host=host, port=port)
     conn.close()
-    print("DB lista ✅")
+    print("DB lista")
     sys.exit(0)
 except Exception as e:
     print("DB no disponible:", e)
@@ -24,7 +24,7 @@ PY
 do
   i=$((i+1))
   if [ $i -ge 30 ]; then
-    echo "❌ No se ha podido conectar a la base de datos tras varios intentos. Abortando."
+    echo "No se ha podido conectar a la base de datos tras varios intentos. Abortando."
     exit 1
   fi
   sleep 1
@@ -43,5 +43,8 @@ echo "Recogiendo archivos estáticos..."
 # Descomentar el collectstatic en producción
 # python manage.py collectstatic --noinput
 
-echo "Iniciando servidor Django 🐍"
+echo "Iniciando servidor Django"
 exec "$@"
+
+echo "Iniciamos datos minimos"
+python manage.py crontab run fe7d3374024399a685203f6c5e6e168e

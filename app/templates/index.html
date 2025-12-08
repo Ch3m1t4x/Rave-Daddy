@@ -26,31 +26,32 @@
       <h2 class="panel-title">Find your next party</h2>
       <div class="field">
         <label>DJ</label>
-        <input type="text" placeholder="Freddy K, VTSS, ..." />
+        <input id="dj-input" type="text" placeholder="Freddy K, VTSS, ..." />
       </div>
       <div class="field">
         <label>Genre</label>
-        <select>
+        <select id="genre-select">
           <option>Techno</option>
-          <option>Acid</option>
-          <option>House</option>
-          <option>Industrial</option>
+          <option>Acid techno</option>
+          <option>Tech house</option>
+          <option>Hard techno</option>
         </select>
       </div>
       <div class="field">
         <label>City</label>
-        <select>
+        <select id="city-select">
           <option>Madrid</option>
           <option>Barcelona</option>
           <option>Valencia</option>
-          <option>Bilbao</option>
         </select>
       </div>
       <div class="field">
         <label>Date</label>
-        <input type="date" />
+        <input id="date-input" type="date" />
+        <div id="date-error" class="error-msg" style="color:#ff4d4d; font-size:0.85rem; margin-top:4px; display:none;">
+        </div>
       </div>
-      <button class="btn talk neon-border">FILTER AND TALK TO DADDY</button>
+      <button id="filter-btn" class="btn talk neon-border">FILTER AND TALK TO DADDY</button>
     </section>
     <section class="chat-section neon-border">
       <section class="bot-section">

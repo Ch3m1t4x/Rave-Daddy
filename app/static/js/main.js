@@ -72,6 +72,42 @@ input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") handleSend();
 });
 
+document.getElementById("filter-btn").addEventListener("click", handleFilter);
+
+async function handleFilter() {
+  const dateInput = document.getElementById("date-input");
+  const dateError = document.getElementById("date-error");
+
+  const data = {
+    dj: document.getElementById("dj-input").value.trim(),
+    genre: document.getElementById("genre-select").value,
+    city: document.getElementById("city-select").value,
+    date: dateInput.value
+  };
+
+  // --- VALIDACIÓN ---
+  if (!data.date) {
+    dateError.textContent = "La fecha es obligatoria.";
+    dateError.style.display = "block";
+    dateInput.classList.add("error");
+    return; // ❌ No enviamos
+  } else {
+    // limpiar error si ya hay fecha
+    dateError.style.display = "none";
+    dateInput.classList.remove("error");
+  }
+
+  // --- ENVÍO ---
+  const res = await fetch("/chatbot/filters/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+  console.log("Backend result:", result);
+}
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== "") {
@@ -164,3 +200,4 @@ document.getElementById("register-form").addEventListener("submit", async functi
         document.getElementById("register-error").classList.remove("hidden");
     }
 });
+

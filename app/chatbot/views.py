@@ -3,19 +3,10 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from .agent import chat_with_memory
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
+from events.models import Evento
 
-@csrf_exempt
-def chat_api(request):
-    if request.method != "POST":
-        return JsonResponse({"error": "POST only"}, status=405)
-
-    body = json.loads(request.body)
-    user_message = body.get("message", "")
-
-    if not user_message:
-        return JsonResponse({"error": "Empty message"}, status=400)
-
-    # SESIÓN PARA USUARIOS ANÓNIMOS
+def get_sesion(request):
+    # SESIÓN
     history_data = request.session.get("chat_history", [])
 
     # Convertimos la historia en HumanMessage / AIMessage reales
@@ -36,11 +27,10 @@ def chat_api(request):
                     name=msg.get("name"),
                 )
             )
+    return history
 
-    # Ejecutar agente
-    updated_history, reply = chat_with_memory(user_message, history)
-
-    # Guardar historia en sesión
+def set_sesion(request,updated_history):
+        # Guardar historia en sesión
     session_friendly = []
     for msg in updated_history:
         if isinstance(msg, HumanMessage):
@@ -57,5 +47,47 @@ def chat_api(request):
     request.session["chat_history"] = session_friendly
     request.session.modified = True
 
+@csrf_exempt
+def chat_api(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST only"}, status=405)
+
+    body = json.loads(request.body)
+    user_message = body.get("message", "")
+
+    if not user_message:
+        return JsonResponse({"error": "Empty message"}, status=400)
+
+    history = get_sesion(request)
+
+    # Ejecutar agente
+    updated_history, reply = chat_with_memory(user_message, history)
+
+    set_sesion(request, updated_history)
+
     return JsonResponse({"response": reply})
 
+@csrf_exempt
+def search_filter(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST only"}, status=405)
+
+    body = json.loads(request.body)
+    city = body.get("city", "")
+    date = body.get("date", "")
+    # genre = body.get("genre", "").upper()
+    # dj = body.get("dj", "")
+    
+    # qs = Evento.objects.filter(ciudad.name==city, fecha=date)
+    # if genre:
+    #     qs = qs.filter(genre__iexact=genre)
+    # if dj:
+    #     qs = qs.filter(dj__icontains=dj)
+    user_message = "Dame las fiestas en {city} el {date}"
+    history = get_sesion(request)
+    
+    updated_history, reply = chat_with_memory(user_message, history)
+    
+    set_sesion(request, updated_history)
+    
+    return JsonResponse({"response": reply})
