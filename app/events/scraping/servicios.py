@@ -1,1 +1,0 @@
-# Centralizar todas las creaciones de objetos e importarlas donde toque para una mejor distribucion

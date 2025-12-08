@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-# from events.models import Artista, Genero
+from events.models import Artista, Genero
 
 def obtener_o_crear_generos(generos):
     genero_objs = []
@@ -27,20 +27,6 @@ def nombre_url(name):
     return name
     #Mirar para hacer un modelo genero que este conectado con fiestas
 
-def tratar_info(info):
-    partes = [
-        f"Information about the artist:"
-    ]
-    if info.get("genres"):
-        generos = "Genres of the event: " + ", ".join(info.get("genres"))
-        partes.append(generos)
-
-    if info.get("djs"):
-        artistas = "DJs of the event: " + ", ".join(info.get("djs"))
-        partes.append(artistas)
-        
-    return "\n".join(partes)
-
 def scraping_xceed_artist(name):
     name = nombre_url(name)
     artista = {}
@@ -66,5 +52,5 @@ def scraping_xceed_artist(name):
             
             
         browser.close()
-        # guardar_artista(link, artista,generos)
+        guardar_artista(artista,generos)
     return artista
