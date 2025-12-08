@@ -39,11 +39,6 @@ def normalize_response(content):
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
 
 
-@tool(description="Get the current weather in a given location")
-def get_weather(location: str) -> str:
-    return "It's sunny."
-
-
 @tool(description="Get information about techno events in a city")
 def find_events(location: str):
     fiestas = get_events(location)
@@ -59,7 +54,7 @@ def find_djs(name: str):
     info = scraping_xceed_artist(name)
     return info
 
-tools = [get_weather, find_events, dame_detalles, find_djs]
+tools = [find_events, dame_detalles, find_djs]
 
 
 prompt = """
@@ -134,11 +129,6 @@ prompt = """
 
     scraping_xceed_artist  
     - Úsala únicamente cuando el usuario pregunte por DJs.
-
-    get_weather  
-    - Solo para clima en ciudades reales de España.
-    - Nunca para otros países.  
-    - Si te piden clima fuera de España, responde en personaje sin usar tools.
 
     ==========================
         EVENT HANDLING RULES

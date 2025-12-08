@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+from events.meteorologia.meteo_api import get_weather_city
 from events.models import Evento, EventoDetalle, Artista, Genero
 
 def limpiar_formato(texto, formato):
@@ -9,7 +10,9 @@ def limpiar_formato(texto, formato):
 def get_events_details(name):
     e_obj = Evento.objects.get(nombre__icontains = name)
     e_obj_det = EventoDetalle.objects.get(evento = e_obj)
-    return str(e_obj_det)
+    temp = get_weather_city(e_obj.id)
+    
+    return str(e_obj_det) + temp
 
 def obtener_o_crear_generos(generos):
     genero_objs = []

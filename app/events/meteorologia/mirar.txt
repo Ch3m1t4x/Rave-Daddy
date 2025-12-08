@@ -1,4 +1,0 @@
-https://openweathermap.org/city/3117735
-https://www.meteomatics.com/en/weather-api/?ppc_keyword=weatherstack%20api&utm_term=weatherstack%20api&utm_campaign=English+speaking+competitors&utm_source=adwords&utm_medium=ppc&hsa_acc=5001518620&hsa_cam=9891628525&hsa_grp=101205540875&hsa_ad=433573438458&hsa_src=g&hsa_tgt=kwd-834700158429&hsa_kw=weatherstack%20api&hsa_mt=p&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=9891628525&gbraid=0AAAAADoNVHoPE9i-yoHug85X2cxAaodHv&gclid=EAIaIQobChMI8snpksmckQMVxHJBAh3-OyEOEAAYASAAEgIbB_D_BwE
-https://openweathermap.org/api/one-call-3
-https://openweathermap.org/api/geocoding-api
