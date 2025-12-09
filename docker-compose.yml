@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data # Volumen de la base de datos
     networks:
       - ravedaddy-net
 
@@ -17,9 +17,9 @@ services:
       dockerfile: Dockerfile
     command: bash -c "/entrypoint.sh && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./app:/usr/src/app   # tu código estará fuera del contenedor y se sincroniza aquí
+      - ./app:/usr/src/app   # Volumen de la aplicacion
     ports:
-      - "8000:8000"         # accede desde el host a localhost:8000
+      - "8000:8000"
     env_file:
       - .env
     depends_on:

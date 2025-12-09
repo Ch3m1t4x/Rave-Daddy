@@ -64,5 +64,5 @@ def get_weather_city(id_e):
     temps_totales = t_dia_horas + t_noche_horas
 
     temp_formateadas = [f"{h}h → {t}ºC" for h, t in zip(horas_totales, temps_totales)]
-    salida = "\n".join(temp_formateadas)
-    return "\nTemperaturas\n" + salida
+    salida = ", ".join(temp_formateadas)
+    return "\nTemperaturas:\n" + salida

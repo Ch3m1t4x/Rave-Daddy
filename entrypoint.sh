@@ -43,8 +43,11 @@ echo "Recogiendo archivos estáticos..."
 # Descomentar el collectstatic en producción
 # python manage.py collectstatic --noinput
 
-echo "Iniciando servidor Django"
-exec "$@"
+echo "Arrancando cron..."
+service cron start
 
 echo "Iniciamos datos minimos"
 python manage.py crontab run fe7d3374024399a685203f6c5e6e168e
+
+echo "Iniciando servidor Django"
+exec "$@"

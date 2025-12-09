@@ -34,8 +34,8 @@ def guardar_evento_detalles(data, evento_detalle):
     
     evento_detalle.horario = data.get("schedule", "")
     evento_detalle.precio = data.get("price", "")
-    evento_detalle.event_info = data.get("event_info", "")
-    evento_detalle.club_info = data.get("club_info", "")
+    evento_detalle.event_info = data.get("event_info", "").strip()
+    evento_detalle.club_info = data.get("club_info", "").strip()
 
     if data.get("djs"):
         artistas_obj = obtener_o_crear_artistas(data.get("djs"), evento_detalle)

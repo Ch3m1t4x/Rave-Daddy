@@ -211,7 +211,8 @@ def chat_with_memory(user_message: str, history: list):
                 history.append(msg)
 
         reply = forced_messages[-1].content
-        new_messages.extend(forced_messages)  # mantener todos los mensajes generados
+        # Mantener todos los mensajes generados
+        new_messages.extend(forced_messages)
     else:
         reply = last_msg.content
 
