@@ -148,5 +148,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Automatizacion de la busqueda
 CRONJOBS = [
-    ('0 11 * * 1', 'events.scraping.cron.buscar_eventos'),
+    ('0 0 * * *', 'events.scraping.cron.buscar_eventos'),
 ]

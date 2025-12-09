@@ -1,4 +1,4 @@
-# python manage.py crontab run fe7d3374024399a685203f6c5e6e168e
+# python manage.py crontab run c14792ed7ff856fc46d7849fd03a9606
 def buscar_detalles(fiestas):
     from .xceed_evento import scraping_xceed_events
     for eventos in fiestas.values():
