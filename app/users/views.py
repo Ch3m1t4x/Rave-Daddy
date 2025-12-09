@@ -29,6 +29,7 @@ def api_register(request):
     user = User.objects.create_user(username=username, email=email, password=password)
 
     login(request, user)
+    request.session["chat_history"] = []
 
     return JsonResponse({"success": True, "username": user.username})
 
@@ -57,9 +58,11 @@ def api_login(request):
         )
 
     login(request, user)
+    request.session["chat_history"] = []
 
     return JsonResponse({"success": True, "username": user.username})
 
 def logout_view(request):
     logout(request)
+    request.session["chat_history"] = []
     return JsonResponse({"success": True})
