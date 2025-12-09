@@ -29,7 +29,7 @@ def api_register(request):
     user = User.objects.create_user(username=username, email=email, password=password)
 
     login(request, user)
-    request.session["chat_history"] = []
+    request.session["chat_history"] = [{"role": "user", "content": f"Mi nombre es {user.username}, llamame siempre así"}]
 
     return JsonResponse({"success": True, "username": user.username})
 
@@ -58,7 +58,7 @@ def api_login(request):
         )
 
     login(request, user)
-    request.session["chat_history"] = []
+    request.session["chat_history"] = [{"role": "user", "content": f"Mi nombre es {user.username}, llamame siempre así"}]
 
     return JsonResponse({"success": True, "username": user.username})
 
