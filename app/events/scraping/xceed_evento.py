@@ -13,7 +13,7 @@ def scraping_xceed_events(enlace):
     if buscar:
         informacion = {}
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(headless=True,  timeout=8000)
             page = browser.new_page()
             page.goto(enlace)
 

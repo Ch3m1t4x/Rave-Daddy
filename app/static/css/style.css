@@ -89,9 +89,8 @@ body {
   text-shadow: 0 0 12px rgba(247, 74, 74, 0.7);
 }
 
-.logo :hover{
+.logo:hover{
   color: #fff;
-  box-shadow: 0 0 8px #ff0066;
 }
 
 .btn {
