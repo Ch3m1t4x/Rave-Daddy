@@ -2,8 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
-from events.services import get_events, get_events_details
-from events.scraping.xceed_artista import scraping_xceed_artist
+from events.services import get_events, get_events_details, get_artistas
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -50,7 +49,7 @@ def dame_detalles(name: str):
 
 @tool(description="Get information about djs")
 def find_djs(name: str):
-    info = scraping_xceed_artist(name)
+    info = get_artistas(name)
     return info
 
 tools = [find_events, dame_detalles, find_djs]

@@ -69,9 +69,9 @@ def get_weather_city(id_e):
     temp_anterior = None
 
     for h, t in zip(horas_totales, temps_totales):
-        t_decena = int(t) // 10
+        t_decena = int(t)
         if t_decena != temp_anterior:
             temp_formateadas.append(f"{h}h: {t}ºC")
-            temp_anterior = t
+            temp_anterior = t_decena
     salida = ", ".join(temp_formateadas)
     return "\nTemperaturas:\n" + salida

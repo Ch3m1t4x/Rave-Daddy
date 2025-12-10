@@ -121,5 +121,6 @@ def actualizar_artistas(data, nombre):
 
 def get_artistas(name):
     a_obj = Artista.objects.get(nombre__icontains = name)
+    return str(a_obj)
     
     
