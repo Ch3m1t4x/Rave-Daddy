@@ -2,8 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
-from events.scraping.xceed import get_events
-from events.scraping.xceed_evento import get_events_details
+from events.services import get_events, get_events_details
 from events.scraping.xceed_artista import scraping_xceed_artist
 from dotenv import load_dotenv
 

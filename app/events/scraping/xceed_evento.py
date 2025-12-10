@@ -1,51 +1,11 @@
 from playwright.sync_api import sync_playwright
-from events.meteorologia.meteo_api import get_weather_city
-from events.models import Evento, EventoDetalle, Artista, Genero
+from events.models import Evento, EventoDetalle
+from events.services import guardar_evento_detalles
 
 def limpiar_formato(texto, formato):
     separado = texto.split(formato)
     texto_limpio = separado[-1].strip()
     return texto_limpio
-
-def get_events_details(name):
-    e_obj = Evento.objects.get(nombre__icontains = name)
-    e_obj_det = EventoDetalle.objects.get(evento = e_obj)
-    temp = get_weather_city(e_obj.id)
-    
-    return str(e_obj_det) + temp
-
-def obtener_o_crear_generos(generos):
-    genero_objs = []
-    for g in generos:
-        genero_obj, _ = Genero.objects.get_or_create(nombre=g)
-        genero_objs.append(genero_obj)
-    return genero_objs
-
-def obtener_o_crear_artistas(artistas, obj_detalle):
-    evento = obj_detalle.evento
-    artistas_objs = []
-    for a in artistas:
-        artista_obj, _ = Artista.objects.get_or_create(nombre=a)
-        artista_obj.eventos.add(evento)
-        artistas_objs.append(artista_obj)
-    return artistas_objs
-
-def guardar_evento_detalles(data, evento_detalle):
-    
-    evento_detalle.horario = data.get("schedule", "")
-    evento_detalle.precio = data.get("price", "")
-    evento_detalle.event_info = data.get("event_info", "").strip()
-    evento_detalle.club_info = data.get("club_info", "").strip()
-
-    if data.get("djs"):
-        artistas_obj = obtener_o_crear_artistas(data.get("djs"), evento_detalle)
-        evento_detalle.artistas.set(artistas_obj)
-    if data.get("genres"):
-        generos_objs = obtener_o_crear_generos(data.get("genres"))
-        evento_detalle.generos.set(generos_objs)
-    
-    evento_detalle.save()
-    print(f"{str(evento_detalle.evento)} Hecho")
     
 def scraping_xceed_events(enlace):
     evento = Evento.objects.get(enlace = enlace)

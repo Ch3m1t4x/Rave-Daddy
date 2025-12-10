@@ -77,7 +77,6 @@ def search_filter(request):
     city = body.get("city", "")
     date = body.get("date", "")
     genre = body.get("genre", "")
-    # dj = body.get("dj", "")
     [year, month, day] = date.split("-")
     qs = Evento.objects.filter(ciudad__nombre=city.lower())
     qs = qs.filter(fecha=date)
@@ -87,9 +86,6 @@ def search_filter(request):
         qs = qs.filter(detalle__generos__nombre=genre.upper())
         if not qs:
             return JsonResponse({"response": f"No he encontrado fiestas de {genre.lower()} el {day} en {city}"})
-    # if dj:
-    #     qs = qs.filter(dj__icontains=dj)
-    # user_message = f"Dame fiestas en {city} el {date}"
     eventos = [str(e) for e in qs]
     history.append(AIMessage(content="\n".join(eventos)))
     user_message = f"Repiteme las fiestas"    
