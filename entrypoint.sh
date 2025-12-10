@@ -40,8 +40,8 @@ if [ -n "$DJANGO_SUPERUSER_EMAIL" ] && [ -n "$DJANGO_SUPERUSER_USERNAME" ] && [ 
 fi
 
 echo "Recogiendo archivos estáticos..."
-# Descomentar el collectstatic en producción
-# python manage.py collectstatic --noinput
+Descomentar el collectstatic en producción
+python manage.py collectstatic --noinput
 
 echo "Arrancando cron..."
 service cron start
