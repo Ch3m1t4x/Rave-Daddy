@@ -1,31 +1,18 @@
 from playwright.sync_api import sync_playwright
-from events.models import Artista, Genero
-from events.services import obtener_o_crear_generos
-
-def guardar_artista(data, generos):
-    artista, _ = Artista.objects.update_or_create(
-        defaults={
-            "info": data.get("info", "")
-        }
-    )
-    if generos:
-        generos_objs = obtener_o_crear_generos(generos)
-        artista.generos.set(generos_objs)
+from events.services import actualizar_artistas
     
-def nombre_url(name):
-    name = name.replace(".", " ")
-    name = name.replace(" ","-")
-    name = name.lower()
-    return name
-    #Mirar para hacer un modelo genero que este conectado con fiestas
+# def nombre_url(name):
+#     name = name.replace(".", " ")
+#     name = name.replace(" ","-")
+#     name = name.lower()
+#     return name
 
-def scraping_xceed_artist(name):
-    name = nombre_url(name)
+def scraping_xceed_artist(name, enlace):
     artista = {}
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto(f"https://xceed.me/es/artist/{name}")
+        page.goto(f"https://xceed.me/{enlace}")
         
         # Busca los géneros que tiene el artista si los hay
         generos = []
@@ -42,5 +29,5 @@ def scraping_xceed_artist(name):
             artista['info'] = "No hay información del artista"
             
         browser.close()
-        # guardar_artista(artista,generos)
+    actualizar_artistas(artista,name)
     return artista

@@ -106,5 +106,20 @@ def obtener_o_crear_artistas(artistas, obj_detalle):
         artistas_objs.append(artista_obj)
     return artistas_objs
 
+def actualizar_artistas(data, nombre):
+    artista, _ = Artista.objects.update_or_create(
+        nombre = nombre,
+        defaults={
+            "info": data.get("info", "")
+        }
+    )
+    if data.get("genres"):
+        generos_objs = obtener_o_crear_generos(data.get("genres"))
+        artista.generos.set(generos_objs)
+        
+    print(f"{artista.nombre} Hecho")
+
+def get_artistas(name):
+    a_obj = Artista.objects.get(nombre__icontains = name)
     
     

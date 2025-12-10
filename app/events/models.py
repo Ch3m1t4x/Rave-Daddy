@@ -17,6 +17,9 @@ class Evento(models.Model):
 
     def __str__(self):
         return f"Name: {self.nombre}, Date: {self.fecha}, Club: {self.club}"
+    
+    def salida_filter(self):
+        return f"{self.nombre} en {self.ciudad.nombre}, el {self.fecha.day}"
 
 # Modelo para almacenar generos de forma centralizada    
 class Genero(models.Model):
@@ -33,7 +36,16 @@ class Artista(models.Model):
     info = models.TextField(blank=True)
 
     def __str__(self):
-        return self.nombre
+        parts = [
+            f"Name: {self.nombre} Info: {self.info}",
+        ]
+        if self.generos.exists():
+            generos_nombres = ", ".join([g.nombre for g in self.generos.all()])
+            parts.append(f"Géneros: {generos_nombres}")
+        if self.eventos.exists():
+            eventos_nombres = ", ".join([g.nombre for g in self.eventos.all()])
+            parts.append(f"Géneros: {eventos_nombres}")
+        return "\n".join(parts)
     
 # Modelo para almacenar detalles de un evento especifico
 class EventoDetalle(models.Model):

@@ -127,6 +127,10 @@ body {
   margin-right: 2.5vh;
 }
 
+.search-panel * {
+    font-family: "RaveDaddyFont", Arial, Helvetica, sans-serif;
+}
+
 .panel-title {
   margin: 0 0 12px;
   color: var(--muted);

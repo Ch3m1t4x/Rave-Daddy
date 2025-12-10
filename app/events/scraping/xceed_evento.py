@@ -45,12 +45,21 @@ def scraping_xceed_events(enlace):
 
             # Busca informacion si hay sobre los artistas
             informacion['djs'] = []
+            enlaces = []
             lineup_div = page.locator("//*[@data-section='lineup']/div").first
             artistas_textos = lineup_div.locator("a")
-            if artistas_textos.count():
-                artistas_textos = artistas_textos.all_inner_texts()
-                informacion['djs'] = [ nombre.split("\n")[0] for nombre in artistas_textos ]
+            count = artistas_textos.count()
+            for i in range(count):
+                elemento = artistas_textos.nth(i)
+                texto = elemento.inner_text()
+                enlace = elemento.get_attribute("href")
+                enlaces.append({
+                    "nombre": texto.split("\n")[0],
+                    "enlace": enlace
+                })
+                informacion['djs'].append(texto.split("\n")[0])
             browser.close()
         guardar_evento_detalles(informacion, evento_detalle)
+        return enlaces
     else:
-        print(f"{evento.nombre} Ya estaba")
+        print(f"{evento.nombre} Ya estaba {evento_detalle.artistas}")

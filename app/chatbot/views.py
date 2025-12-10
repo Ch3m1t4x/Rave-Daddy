@@ -77,18 +77,25 @@ def search_filter(request):
     city = body.get("city", "")
     date = body.get("date", "")
     genre = body.get("genre", "")
+    dj = body.get("dj", "")
     [year, month, day] = date.split("-")
-    qs = Evento.objects.filter(ciudad__nombre=city.lower())
-    qs = qs.filter(fecha=date)
-    if not qs:
-        return JsonResponse({"response": f"No he encontrado fiestas en {city} para esas fechas, prueba con alguna otra"})
-    if genre:
+    qs = Evento.objects.filter(fecha=date)
+    if not qs.exists():
+        return JsonResponse({"response": f"No he encontrado fiestas para esas fechas, prueba con alguna otra"})
+    if city != "Cualquiera":
+        qs = qs.filter(ciudad__nombre=city.lower())
+    if genre and genre != "Cualquiera":
         qs = qs.filter(detalle__generos__nombre=genre.upper())
-        if not qs:
+        if not qs.exists():
             return JsonResponse({"response": f"No he encontrado fiestas de {genre.lower()} el {day} en {city}"})
-    eventos = [str(e) for e in qs]
+    if dj:
+        qs = qs.filter(detalle__artistas__nombre__iexact=dj)
+        if not qs.exists():
+            return JsonResponse({"response": f"No he encontrado fiestas de {dj} el {day} en {city}"})
+    qs = qs.distinct()
+    eventos = [e.salida_filter() for e in qs]
     history.append(AIMessage(content="\n".join(eventos)))
-    user_message = f"Repiteme las fiestas"    
+    user_message = f"Repiteme el mensaje anterior"    
     updated_history, reply = chat_with_memory(user_message, history)
     
     set_sesion(request, updated_history)
