@@ -105,7 +105,7 @@ async function handleFilter() {
   });
 
   const result = await res.json();
-  console.log("Backend result:", result);
+  addBotMessage(result.response);
 }
 
 function getCookie(name) {

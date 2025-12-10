@@ -83,7 +83,7 @@ def search_filter(request):
     #     qs = qs.filter(genre__iexact=genre)
     # if dj:
     #     qs = qs.filter(dj__icontains=dj)
-    user_message = "Dame las fiestas en {city} el {date}"
+    user_message = f"Dame fiestas en {city} el {date}"
     history = get_sesion(request)
     
     updated_history, reply = chat_with_memory(user_message, history)
