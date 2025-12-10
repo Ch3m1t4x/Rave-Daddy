@@ -72,20 +72,27 @@ def search_filter(request):
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
 
+    history = get_sesion(request)
     body = json.loads(request.body)
     city = body.get("city", "")
     date = body.get("date", "")
-    # genre = body.get("genre", "").upper()
+    genre = body.get("genre", "")
     # dj = body.get("dj", "")
-    
-    # qs = Evento.objects.filter(ciudad.name==city, fecha=date)
-    # if genre:
-    #     qs = qs.filter(genre__iexact=genre)
+    [year, month, day] = date.split("-")
+    qs = Evento.objects.filter(ciudad__nombre=city.lower())
+    qs = qs.filter(fecha=date)
+    if not qs:
+        return JsonResponse({"response": f"No he encontrado fiestas en {city} para esas fechas, prueba con alguna otra"})
+    if genre:
+        qs = qs.filter(detalle__generos__nombre=genre.upper())
+        if not qs:
+            return JsonResponse({"response": f"No he encontrado fiestas de {genre.lower()} el {day} en {city}"})
     # if dj:
     #     qs = qs.filter(dj__icontains=dj)
-    user_message = f"Dame fiestas en {city} el {date}"
-    history = get_sesion(request)
-    
+    # user_message = f"Dame fiestas en {city} el {date}"
+    eventos = [str(e) for e in qs]
+    history.append(AIMessage(content="\n".join(eventos)))
+    user_message = f"Repiteme las fiestas"    
     updated_history, reply = chat_with_memory(user_message, history)
     
     set_sesion(request, updated_history)
