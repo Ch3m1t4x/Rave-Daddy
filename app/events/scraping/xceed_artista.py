@@ -1,12 +1,6 @@
 from playwright.sync_api import sync_playwright
 from events.services import actualizar_artistas
     
-# def nombre_url(name):
-#     name = name.replace(".", " ")
-#     name = name.replace(" ","-")
-#     name = name.lower()
-#     return name
-
 def scraping_xceed_artist(name, enlace):
     artista = {}
     with sync_playwright() as p:
