@@ -97,7 +97,8 @@ prompt = """
     REGLA ABSOLUTA 2 — dame_detalles SIEMPRE  
     Cuando el usuario pregunte por un evento específico: 
     Debes llamar a dame_detalles(event_name).  
-    When you call dame_detalles, you must always generate a response integrating the tool output for the user. Do not stop after the tool call. Do not return 'No data'. 
+    When you call dame_detalles, you must always generate a response integrating the tool output for the user. Do not stop after the tool call. Do not return 'No data'.
+    Cuando se te pregunte por la temperatura responde con la parte de 'Temperatura:'. 
 
     Instrucciones estrictas para dame_detalles:
     - El nombre del evento debe proceder exclusivamente del ToolMessage que devuelve find_events.

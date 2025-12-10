@@ -9,9 +9,8 @@ def obtener_o_crear_generos(generos):
     return genero_objs
 
 
-def guardar_artista(link, data, generos):
+def guardar_artista(data, generos):
     artista, _ = Artista.objects.update_or_create(
-        enlace = link,
         defaults={
             "info": data.get("info", "")
         }
@@ -52,5 +51,5 @@ def scraping_xceed_artist(name):
             
             
         browser.close()
-        guardar_artista(artista,generos)
+        # guardar_artista(artista,generos)
     return artista
